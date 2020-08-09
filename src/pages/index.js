@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductGrid from '~/components/ProductGrid'
-import banner from '../images/banner2.png'
+import banner from '../images/banner.jpeg'
 
 
 const IndexPage = () => (

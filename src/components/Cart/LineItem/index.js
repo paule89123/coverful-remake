@@ -5,43 +5,48 @@ import StoreContext from '~/context/StoreContext'
 import { Wrapper } from './styles'
 
 const LineItem = props => {
-  const { item } = props
+  const { line_item } = props
   const {
     removeLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
-  const variantImage = item.variant.image ? (
+  const variantImage = line_item.variant.image ? (
     <img
-      src={item.variant.image.src}
-      alt={`${item.title} product shot`}
+      src={line_item.variant.image.src}
+      alt={`${line_item.title} product shot`}
       height="60px"
     />
   ) : null
 
-  const selectedOptions = item.variant.selectedOptions
-    ? item.variant.selectedOptions.map(
-        option => `${option.name}: ${option.value} `
+  const selectedOptions = line_item.variant.selectedOptions
+    ? line_item.variant.selectedOptions.map(
+        option => `${option.value} `
       )
     : null
 
   const handleRemove = () => {
-    removeLineItem(client, checkout.id, item.id)
+    removeLineItem(client, checkout.id, line_item.id)
   }
 
   return (
     <Wrapper>
-      {console.log(item)}
-      <Link to={`/product/${item.variant.product.handle}/`}>
+      {console.log(line_item)}
+      <Link to={`/products/${line_item.variant.product.handle}/`}>
         {variantImage}
       </Link>
       <p>
-        {item.title}
-        {`  `}
-        {item.variant.title === !'Default Title' ? item.variant.title : ''}
+        {line_item.title}
       </p>
+      <p>
       {selectedOptions}
-      {item.quantity}
+      </p>
+      <p>
+      {line_item.quantity}
+      </p>
+      <p>
+      {"£" + line_item.variant.price * line_item.quantity + ".00"}
+      </p>
       <button onClick={handleRemove}>Remove</button>
     </Wrapper>
   )

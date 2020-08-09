@@ -18,7 +18,6 @@ const ContextProvider = ({ children }) => {
   }
 
   const [store, updateStore] = useState(initialStoreState)
-  let isRemoved = false
 
   useEffect(() => {
     const initializeCheckout = async () => {
@@ -45,7 +44,7 @@ const ContextProvider = ({ children }) => {
         try {
           const checkout = await fetchCheckout(existingCheckoutID)
           // Make sure this cart hasn’t already been purchased.
-          if (!isRemoved && !checkout.completedAt) {
+          if (!checkout.completedAt) {
             setCheckoutInState(checkout)
             return
           }
@@ -55,15 +54,11 @@ const ContextProvider = ({ children }) => {
       }
 
       const newCheckout = await createNewCheckout()
-      if (!isRemoved) {
-        setCheckoutInState(newCheckout)
-      }
+      setCheckoutInState(newCheckout)
     }
 
     initializeCheckout()
   }, [store.client.checkout])
-  
-  useEffect(() => () => { isRemoved = true; }, [])
 
   return (
     <Context.Provider
@@ -71,7 +66,7 @@ const ContextProvider = ({ children }) => {
         store,
         addVariantToCart: (variantId, quantity) => {
           if (variantId === '' || !quantity) {
-            console.error('Both a size and quantity are required.')
+            console.error('A quantity is required.')
             return
           }
 

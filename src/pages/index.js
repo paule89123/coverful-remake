@@ -3,15 +3,17 @@ import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductGrid from '~/components/ProductGrid'
+import banner from '../images/banner2.png'
+
 
 const IndexPage = () => (
-  <>
+  <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
+
+
+    <div style={{height: 260, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, marginBottom: 48, fontFamily: "Brandon Grotesque Light", color: "rgb(255,255,255)"}}>Butterflies</div>
     <ProductGrid />
-    <Link to="/page-2/">Go to page 2</Link>
-  </>
+  </div>
 )
 
 export default IndexPage

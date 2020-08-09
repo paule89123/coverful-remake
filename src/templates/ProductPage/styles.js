@@ -1,17 +1,18 @@
 import styled from '@emotion/styled'
 
-export const ProductTitle = styled.h1`
-  font-size: 2.25rem;
-  margin-bottom: 15px;
+export const ProductTitle = styled.div`
+  font-size: 28px;
   word-wrap: break-word;
-  font-family: "Helvetica","Helvetica",sans-serif;
   font-weight: 400;
-  margin: 0 0 0.5rem;
-  line-height: 1.4;
+  margin-bottom: 6px;
+  font-family: 'PlayfairDisplay';
+  font-weight: 400;
 `
 
 export const ProductDescription = styled.div`
   margin-top: 40px;
-  font-family: "Helvetica","Helvetica",sans-serif;
+  line-height: 1.4;
   font-weight: 300;
+  font-size: 14px;
+  color: rgb(68,68,68)
 `

@@ -15,12 +15,7 @@ const ProductGrid = () => {
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(
-          sort: {
-            fields: [createdAt]
-            order: DESC
-          }
-        ) {
+        allShopifyProduct {
           edges {
             node {
               id
@@ -32,8 +27,10 @@ const ProductGrid = () => {
                 originalSrc
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 910) {
-                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    fixed(
+                    width: 345
+                    ) {
+                      ...GatsbyImageSharpFixed
                     }
                   }
                 }
@@ -59,12 +56,12 @@ const ProductGrid = () => {
       {allShopifyProduct.edges
         ? allShopifyProduct.edges.map(({ node: { id, handle, title, images: [firstImage], variants: [firstVariant] } }) => (
           <Product key={id} >
-            <Link to={`/product/${handle}/`}>
+            <Link to={`/products/${handle}/`}>
               {firstImage && firstImage.localFile &&
-                (<Img
-                  fluid={firstImage.localFile.childImageSharp.fluid}
+                (<div style={{display: "flex", justifyContent: "center"}}><Img
+                  fixed={firstImage.localFile.childImageSharp.fixed}
                   alt={handle}
-                />)}
+                /></div>)}
             </Link>
             <Title>{title}</Title>
             <PriceTag>{getPrice(firstVariant.price)}</PriceTag>

@@ -2,19 +2,23 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
+import ProductGrid from '~/components/ProductGrid/ProductGridFoodAndDrink'
 import banner from '../images/banner.jpeg'
 
 
-const IndexPage = () => (
+const FoodAndDrinkPage = () => (
   <div>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Food and Drink • Coverful" keywords={[`gatsby`, `application`, `react`]} />
 
 
     <div style={{height: 260, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, marginBottom: 48, fontFamily: "Brandon Grotesque Light", color: "rgb(255,255,255)"}}>Butterflies</div>
-    
-    <Link to="/famous-faces">Famous Faces</Link>
-    <Link to="/food-and-drink">Food and Drink</Link>
+    <ProductGrid category="food and drink" />
+
   </div>
 )
 
-export default IndexPage
+export default FoodAndDrinkPage
+
+
+
+

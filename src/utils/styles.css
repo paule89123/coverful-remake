@@ -9,7 +9,7 @@ src: url('AvenirLTStd-Medium.otf');
 font-family: 'AvenirBold';
 src: url('AvenirLTStd-Heavy.otf');
 }
-
+/*
 @font-face {
 font-family: 'PlayfairDisplay';
 src: url('AvenirLTStd-Heavy.otf');
@@ -110,4 +110,4 @@ font-family: 'Brandon Grotesque Black Italic';
 font-style: normal;
 font-weight: normal;
 src: local('Brandon Grotesque Black Italic'), url('Brandon_blk_it.woff') format('woff');
-}
+}*/

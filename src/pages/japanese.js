@@ -2,22 +2,22 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
-import ProductGridFamousFaces from '~/components/ProductGrid/ProductGridFamousFaces'
+import ProductGridJapanese from '~/components/ProductGrid/ProductGridJapanese'
 import banner from '../images/banner.jpeg'
 
 
-const FamousFacesPage = () => (
+const JapanesePage = () => (
   <div>
-    <SEO title="Famous Faces • Coverful" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Japanese • Coverful" keywords={[`gatsby`, `application`, `react`]} />
 
 
     <div style={{height: 260, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, marginBottom: 48, fontFamily: "Brandon Grotesque Light", color: "rgb(255,255,255)"}}>Butterflies</div>
-    <ProductGridFamousFaces />
+    <ProductGridJapanese />
 
   </div>
 )
 
-export default FamousFacesPage
+export default JapanesePage
 
 
 

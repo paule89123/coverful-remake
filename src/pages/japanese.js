@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductGridJapanese from '~/components/ProductGrid/ProductGridJapanese'
-import banner from '../images/banner.jpeg'
+// import banner from '../images/banner.jpeg'
 
 
 const JapanesePage = () => (

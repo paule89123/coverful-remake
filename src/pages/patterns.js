@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductGridPatterns from '~/components/ProductGrid/ProductGridPatterns'
-import banner from '../images/banner.jpeg'
+// import banner from '../images/banner.jpeg'
 
 
 const PatternsPage = () => (

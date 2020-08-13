@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductGridSurreal from '~/components/ProductGrid/ProductGridSurreal'
-import banner from '../images/banner.jpeg'
+// import banner from '../images/banner.jpeg'
 
 
 const SurrealPage = () => (

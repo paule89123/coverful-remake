@@ -23,7 +23,7 @@ export const Container = styled.div`
   background: white;
   padding: 0 0rem;
   height: 4.1rem;
-  margin: 0 auto;
+  margin: 0 19px;
   width: 100%;
   max-width: 980px;
   position: sticky;
@@ -39,10 +39,6 @@ export const Logo = styled(Link)`
   font-weight: bold;
   padding-right: 32px;
   margin-left: -2px;
-
-  @media (max-width: ${breakpoints.s}px){
-    font-size: 1rem
-  }
 `
 
 export const MenuLink = styled(Link)`

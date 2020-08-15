@@ -39,6 +39,7 @@
     "react-dom": "^16.11.1",
     "react-helmet": "^5.2.1",
     "react-instantsearch-dom": "^6.6.0",
+    "react-responsive-carousel": "^3.2.9",
     "set-value": "^2.0.1",
     "shopify-buy": "^2.8.0",
     "styled-components": "^5.1.1",

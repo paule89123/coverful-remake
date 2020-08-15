@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import downArrow from './down-arrow.png'
 import whiteBag from './white-bag.svg'
 import blackBag from './black-bag.svg'
+import menuIcon from './menu.svg'
 import SearchResult from './searchResult'
 import Menu from './menu'
 import searchResultLarge from './searchResultLarge'
@@ -98,10 +99,11 @@ const Navigation = ({ siteTitle, location }) => {
   // 	}
   // }, [])
 
-  console.log(location.pathname + 'asd');
+  // console.log(location.pathname + 'asd');
 
 	return(
 		<>
+		<div className="desktop-only">
 			<InstantSearch searchClient={searchClient} indexName="coverful">
 				<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
 				</div>
@@ -186,6 +188,35 @@ const Navigation = ({ siteTitle, location }) => {
 					</SearchResultsWrapper>
 				}
 			</InstantSearch>
+			</div>
+
+			<div className="mobile-only">
+				<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
+				</div>
+				<Wrapper>
+					<Container className="black-text">
+
+
+					<img alt="basket" style={{height: 18}} src={menuIcon} />
+						<div>
+							<Logo to='/'>
+								{siteTitle}
+							</Logo>
+						</div>
+
+
+						<div style={{display: "flex"}}>
+						
+
+						<MenuLink style={{position: "relative", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
+							<img alt="basket" style={{height: 22, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
+							{hasItems && <CartCounter>{quantity}</CartCounter>}
+						</MenuLink>
+						</div>
+
+					</Container>
+				</Wrapper>
+			</div>
 		</>
 	)
 }

@@ -14,6 +14,9 @@ import {
   ProductTitle,
   ProductDescription
 } from './styles'
+import 
+  Carousel
+from './Carousel'
 
 const ProductPage = ({ data }) => {
   const activeThumbnailStyle = {
@@ -34,7 +37,7 @@ const ProductPage = ({ data }) => {
   const [ imageIndex, setImageIndex ] = useState(0)
   const product = data.shopifyProduct
 
-  const images = product.images.map((image, i) => (
+  const imagesDesktop = product.images.map((image, i) => (
     i === 0 ? 
     <div style={{boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))"}}>
       <Img
@@ -50,6 +53,27 @@ const ProductPage = ({ data }) => {
         key={image.id}
         alt={product.title}
         style={{height: 461.375}}
+    />
+</div>
+
+  ))
+
+    const imagesMobile = product.images.map((image, i) => (
+    i === 0 ? 
+    <div style={{height: "100vw", width: "100vw", boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))"}}>
+      <Img
+        fluid={image.localFile.childImageSharp.fluid}
+        key={image.id}
+        alt={product.title}
+      />
+    </div>
+    :
+    <div style={{height: "100vw"}}>
+    <Img
+        fluid={image.localFile.childImageSharp.fluid}
+        key={image.id}
+        alt={product.title}
+       style={{height: "100vw"}}
     />
 </div>
 
@@ -85,7 +109,7 @@ const ProductPage = ({ data }) => {
 
 
   function handleClick(i) {
-    setActiveImage(images[i])
+    setActiveImage(imagesDesktop[i])
     setImageIndex(i)
     // console.log(e.target);
   }
@@ -93,13 +117,15 @@ const ProductPage = ({ data }) => {
     <>
       <SEO title={product.title} description={product.description} />
       <Container>
+      <div className="desktop-only">
         <TwoColumnGrid>
           <GridLeft>
             
             <div style={{width: "100%", padding: "0px 72px 0px 0px"}}>
-              {activeImage ? activeImage : images[0]}
+              {activeImage ? activeImage : imagesDesktop[0]}
             </div>
-            {images[1] && 
+
+            {imagesDesktop[1] && 
             <div style={{margin: "28px auto", paddingRight: 72}}>
               {imageThumbnails}
             </div>}
@@ -114,9 +140,14 @@ const ProductPage = ({ data }) => {
             </div>
           </GridRight>
         </TwoColumnGrid>
+        </div>
         <ProductDescription
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
+
+            <div className="mobile-only product-carousel">
+              <Carousel images={imagesMobile} />
+            </div>
       </Container>
     </>
   )

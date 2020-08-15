@@ -5,7 +5,7 @@ export const ProductTitle = styled.div`
   word-wrap: break-word;
   font-weight: 400;
   margin-bottom: 6px;
-  font-family: 'PlayfairDisplay';
+  font-family: 'AvenirBold';
   font-weight: 400;
 `
 

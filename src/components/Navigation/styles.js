@@ -37,8 +37,6 @@ export const Logo = styled(Link)`
   font-size: 1.25rem;
   letter-spacing: 2px;
   font-weight: bold;
-  padding-right: 32px;
-  margin-left: -2px;
 `
 
 export const MenuLink = styled(Link)`

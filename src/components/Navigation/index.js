@@ -110,7 +110,7 @@ const Navigation = ({ siteTitle, location }) => {
 				<Wrapper>
 					<Container className="black-text">
 						<div>
-							<Logo to='/'>
+							<Logo to='/' style={{paddingRight: 32, marginLeft: -2}}>
 								{siteTitle}
 							</Logo>
 							<div style={{fontSize: "15px", letterSpacing: 1, fontWeight: "bold", padding: "0px 16px 80px 10px", display: "inline"}} tabIndex="0" onBlur={handleOnMouseOut} onClick={handleMouseOver}>

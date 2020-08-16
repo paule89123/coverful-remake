@@ -3,7 +3,7 @@ import Image from 'gatsby-image'
 import styled from '@emotion/styled'
 import { Global, css } from "@emotion/core"
 
-import "./styles.css"
+import "./styles.scss"
 
 export const breakpoints = {
   s: 576,

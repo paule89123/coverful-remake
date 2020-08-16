@@ -26,6 +26,7 @@
     "gatsby-plugin-offline": "^3.0.16",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.2.32",
     "gatsby-plugin-styled-components": "^3.3.6",
     "gatsby-source-filesystem": "^2.1.33",
@@ -33,17 +34,18 @@
     "gatsby-transformer-sharp": "^2.3.0",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "querystringify": "^2.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.1",
     "react-helmet": "^5.2.1",
     "react-instantsearch-dom": "^6.6.0",
-    "react-responsive-carousel": "^3.2.9",
     "set-value": "^2.0.1",
     "shopify-buy": "^2.8.0",
     "styled-components": "^5.1.1",
-    "styled-icons": "^10.4.2"
+    "styled-icons": "^10.4.2",
+    "swiper": "^6.1.1"
   },
   "keywords": [
     "gatsby",

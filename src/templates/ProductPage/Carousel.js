@@ -1,24 +1,30 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
- 
-class DemoCarousel extends Component {
-    render() {
-        return (
-            <Carousel>
-                <div style={{width: 500}}>
-                    {this.props.images[0]}
-                </div>
-                <div>
-                    {this.props.images[1]}
-                </div>
-                <div>
-                    {this.props.images[2]}
-                </div>
-            </Carousel>
-        );
-    }
-};
+import React from 'react'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-export default DemoCarousel
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+
+export default (props) => {
+  return (
+    <Swiper
+      spaceBetween={30}
+      slidesPerView={2}
+      centeredSlides={true}
+      pagination={{ clickable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+    >
+      <SwiperSlide><div style={{height: "70vw", width: "70vw", overflow: "hidden"}}>{props.images[0]}</div></SwiperSlide>
+      <SwiperSlide><div style={{height: "70vw", width: "70vw", overflow: "hidden"}}>{props.images[1]}</div></SwiperSlide>
+      <SwiperSlide><div style={{height: "70vw", width: "70vw", overflow: "hidden"}}>{props.images[2]}</div></SwiperSlide>
+    </Swiper>
+  );
+};

@@ -17,13 +17,13 @@ body { overflow-x: hidden; }
 		display: none;
 	}
 	.mobile-only {
-		display: block;
+		display: inline;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	.desktop-only {
-		display: block;
+		display: inline;
 	}
 	.mobile-only {
 		display: none;
@@ -61,7 +61,7 @@ body { overflow-x: hidden; }
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       /*width: 400px!important;*/
     }
 
@@ -70,7 +70,11 @@ body { overflow-x: hidden; }
     }
 
 
-
+.mobile-description {
+	padding-top: 32px;
+	padding-left: 19px;
+	padding-right: 19px; 
+}
 
 
 

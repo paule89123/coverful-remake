@@ -190,7 +190,7 @@ const Navigation = ({ siteTitle, location }) => {
 			</InstantSearch>
 			</div>
 
-			<div className="mobile-only">
+			<div className="mobile-only" style={{position: "relative"}}>
 				<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
 				</div>
 				<Wrapper>

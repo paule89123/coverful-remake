@@ -142,13 +142,23 @@ const ProductPage = ({ data }) => {
           </GridRight>
         </TwoColumnGrid>
         </div>
-        <ProductDescription
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
 
-            <div className="mobile-only product-carousel">
-              <Carousel images={imagesMobile} />
+            <div className="mobile-only">
+                  <Carousel images={imagesMobile} />
+                  <div className="mobile-description">
+                        <ProductTitle style={{}}>{product.title}</ProductTitle>
+                      <ProductForm product={product} />
+                      <br /><br />
+                      <div style={{fontSize: 14, lineHeight: "1.4"}}>
+                        <span style={{fontFamily: "Avenir-Medium", fontSize: 16}}>Our Happiness Promise</span>
+                        <br />We stand behind our products. If you don’t love it, <br />exchanges and returns are free for 30 days. 
+                      </div>
+                  </div>
             </div>
+
+
+
+
       </Container>
     </>
   )

@@ -60,11 +60,12 @@ const ProductPage = ({ data }) => {
 
     const imagesMobile = product.images.map((image, i) => (
     i === 0 ? 
-    <div style={{boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))"}}>
+    <div style={{width: "100vw", height: "100vw", boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))", display: "flex", justifyContent: "center", alignItems: "center"}}>
       <Img
         fluid={image.localFile.childImageSharp.fluid}
         key={image.id}
         alt={product.title}
+        style={{width: "80vw", height: "80vw"}}
       />
     </div>
     :
@@ -73,7 +74,7 @@ const ProductPage = ({ data }) => {
         fluid={image.localFile.childImageSharp.fluid}
         key={image.id}
         alt={product.title}
-       
+        style={{width: "100vw", height: "100vw"}}
     />
 </div>
 

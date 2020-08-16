@@ -14,6 +14,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default (props) => {
   return (
+    <div className="outer-swiper-wrapper">
     <Swiper
       spaceBetween={30}
       slidesPerView={1}
@@ -25,5 +26,6 @@ export default (props) => {
       <SwiperSlide><div>{props.images[1]}</div></SwiperSlide>
       <SwiperSlide><div>{props.images[2]}</div></SwiperSlide>
     </Swiper>
+    </div>
   );
 };

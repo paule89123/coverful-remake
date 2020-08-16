@@ -34,8 +34,15 @@ body { overflow-x: hidden; }
       width: 100%;
       height: 100%;
       overflow: visible!important;
+
     }
 
+.outer-swiper-wrapper {
+	width: 100vw;
+	/*background: red;*/
+
+	/*overflow: hidden;*/
+}
     .swiper-slide {
       text-align: center;
       font-size: 18px;
@@ -54,11 +61,12 @@ body { overflow-x: hidden; }
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      margin-bottom: 32px;
       /*width: 400px!important;*/
     }
 
     .swiper-pagination-bullets {
-    	bottom: -16px!important;
+    	/*margin-top: 32px!important;*/
     }
 
 

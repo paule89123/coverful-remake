@@ -144,6 +144,7 @@ const ProductPage = ({ data }) => {
         </div>
 
             <div className="mobile-only">
+            <div style={{height: 28}}></div>
                   <Carousel images={imagesMobile} />
                   <div className="mobile-description">
                         <ProductTitle style={{}}>{product.title}</ProductTitle>

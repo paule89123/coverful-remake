@@ -19,7 +19,7 @@ export const GlobalStyle = props => (
       body {
         margin: 0;
         font-family: 'Avenir';
-        font-weight: 700;
+        font-weight: 400;
         color: rgb(38,38,38);
       }
       html {

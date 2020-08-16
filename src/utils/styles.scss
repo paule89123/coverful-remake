@@ -13,17 +13,29 @@
 body { overflow-x: hidden; }
 
 @media only screen and (max-width: 768px) {
+	.mobile-only-header {
+		position: sticky;
+		top: 0px;
+		z-index: 10;
+		background-color: red;
+	}
 	.desktop-only {
 		display: none;
 	}
 	.mobile-only {
-		display: inline;
+		display: block;
 	}
 }
 
 @media only screen and (min-width: 768px) {
+	.desktop-only-header {
+		position: sticky;
+		top: 0px;
+		z-index: 10;
+		background-color: red;
+	}
 	.desktop-only {
-		display: inline;
+		display: block;
 	}
 	.mobile-only {
 		display: none;

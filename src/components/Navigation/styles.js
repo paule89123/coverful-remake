@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   box-shadow: 0px 4px 4px -4px rgba(0,0,0,0.2);
+  position: -webkit-sticky;
   position: sticky;
   top: 0px;
   z-index: 2;
@@ -26,6 +27,7 @@ export const Container = styled.div`
   margin: 0 19px;
   width: 100%;
   max-width: 980px;
+  position: -webkit-sticky;
   position: sticky;
   top: 0px;
   z-index: 2;
@@ -36,7 +38,6 @@ export const Logo = styled(Link)`
   text-decoration: none;
   font-size: 1.25rem;
   letter-spacing: 2px;
-  font-weight: bold;
 `
 
 export const MenuLink = styled(Link)`

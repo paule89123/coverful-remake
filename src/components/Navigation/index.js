@@ -103,10 +103,11 @@ const Navigation = ({ siteTitle, location }) => {
 
 	return(
 		<>
-		<div className="desktop-only">
-			<InstantSearch searchClient={searchClient} indexName="coverful">
-				<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
+		<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
 				</div>
+		<div className="desktop-only desktop-only-header">
+			<InstantSearch searchClient={searchClient} indexName="coverful">
+				
 				<Wrapper>
 					<Container className="black-text">
 						<div>
@@ -190,9 +191,7 @@ const Navigation = ({ siteTitle, location }) => {
 			</InstantSearch>
 			</div>
 
-			<div className="mobile-only" style={{position: "relative"}}>
-				<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
-				</div>
+			<div className="mobile-only mobile-only-header">
 				<Wrapper>
 					<Container className="black-text">
 

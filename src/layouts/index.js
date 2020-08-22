@@ -23,7 +23,17 @@ const Footer = styled.div`
   left: 50%;
   margin-left: -50vw;
   margin-top: 96px;
-  padding: 56px 0px 72px 0px;
+  padding: 48px 0px 68px 0px;
+`
+const MobileFooter = styled.div`
+  background-color: rgb(250, 250, 250);
+  border-top: 1px solid rgb(240,240,240);
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: 78px;
+  padding: 48px 0px 48px 0px;
 `
 const FooterContents = styled.div`
   max-width: 980px;
@@ -34,6 +44,14 @@ const FooterContents = styled.div`
   position: relative;
   line-height: 34px;
 `
+const MobileFooterContents = styled.div`
+  max-width: 980px;
+  margin: 0 auto;
+  opacity: 0.57;
+  position: relative;
+  line-height: 34px;
+  padding-left: 19px;
+`
 const Column = styled.div`
   width: 200px;
   margin: 0px 18px 0px 18px;
@@ -43,6 +61,12 @@ const ColumnTitle = styled.div`
   font-size: 13px;
   font-family: AvenirBold;
   margin: 0px 0px 8px 0px;
+  letter-spacing: 1px;
+`
+const MobileColumnTitle = styled.div`
+  font-size: 13px;
+  font-family: AvenirBold;
+  margin: 0px;
   letter-spacing: 1px;
 `
 const SocialIcon = styled.div`
@@ -126,7 +150,7 @@ const Layout = ({ children, location }) => {
 
 
 
-                <Footer>
+                <Footer className="desktop-only">
                   <FooterContents>
                     <Column>
                     <ColumnTitle>INFO</ColumnTitle>
@@ -152,6 +176,40 @@ const Layout = ({ children, location }) => {
                     <div style={{position: "absolute", right: 0, bottom: 0, color: "rgba(0,0,0,0.41)"}}>© {new Date().getFullYear()} Coverful</div>
                   </FooterContents>
                 </Footer>
+
+
+                <MobileFooter className="mobile-only">
+                  <MobileFooterContents>
+                    
+                    <div style={{marginBottom: 30}}>
+                    <MobileColumnTitle>FOLLOW</MobileColumnTitle>
+
+                      <div style={{width: 78, display: "flex", justifyContent: "space-between"}}>
+                      <a href="https://facebook.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 1}} icon={faFacebook} /></SocialIcon></a>
+                      <a href="https://instagram.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 21, marginBottom: 0}} icon={faInstagram} /></SocialIcon></a>
+                      <a href="https://twitter.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 0}} icon={faTwitter} /></SocialIcon></a>
+                      </div>
+                    </div>
+                    <div style={{marginBottom: 30}}>
+                    <MobileColumnTitle>INFO</MobileColumnTitle>
+
+                    <Link to="/about">About us</Link>
+                    <br/>
+                    <Link to="/shipping-and-payment">Shipping & payment</Link>
+                    <br/>
+                    <Link to="returns-and-refunds">Returns & refunds</Link>
+                    </div>
+                    <div style={{marginBottom: 30}}>
+                    <MobileColumnTitle>CONTACT</MobileColumnTitle>
+
+                    hello@coverful.co.uk
+                    </div>
+
+                    <div style={{color: "rgba(0,0,0,0.5)", fontSize: 12}}>© {new Date().getFullYear()} Coverful</div>
+                  </MobileFooterContents>
+                </MobileFooter>
+
+
               </footer>
             </Wrapper>
           </div>

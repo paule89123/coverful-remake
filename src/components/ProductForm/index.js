@@ -16,7 +16,6 @@ const ProductForm = ({ product }) => {
   paddingBottom: 8,
   fontFamily: "AvenirBold",
   marginBottom: -1,
-  marginRight: 36,
   fontSize: 13,
   letterSpacing: 1
 }
@@ -26,7 +25,6 @@ const inactiveStyle = {
   cursor: "pointer",
   paddingBottom: 8,
   marginBottom: -1,
-  marginRight: 36,
   fontSize: 13,
   letterSpacing: 1
 }
@@ -154,7 +152,7 @@ const inactiveStyle = {
 
       <br />
 
-      <div className="pastel" style={{display: "inline-block", padding: "12px 24px", lineHeight: "1.4", backgroundColor: "rgba(197, 155, 141,0.1)", fontFamily: "AvenirBold", color: "rgba(197, 155, 141,1)", fontSize: 16}}>
+      <div className="pastel buy-any-three" style={{display: "inline-block", padding: "12px 24px", lineHeight: "1.4", backgroundColor: "rgba(197, 155, 141,0.1)", fontFamily: "AvenirBold", color: "rgba(197, 155, 141,1)", fontSize: 16}}>
         Buy any 3 cushion covers, save £10
       </div>
 
@@ -162,8 +160,8 @@ const inactiveStyle = {
 
       <div>
         <div style={{borderBottom: "1px solid rgba(0,0,0,0.2)", marginBottom: 16}}>
-          <div onClick={handleDetailsClick} style={detailsActive ? activeStyle : inactiveStyle}>DETAILS</div>
-          <div onClick={handleShippingClick} style={shippingActive ? activeStyle : inactiveStyle}>SHIPPING, RETURNS & REFUNDS</div>
+          <div className="more-product-info-link" onClick={handleDetailsClick} style={detailsActive ? activeStyle : inactiveStyle}>DETAILS</div>
+          <div className="more-product-info-link" onClick={handleShippingClick} style={shippingActive ? activeStyle : inactiveStyle}>SHIPPING, RETURNS & REFUNDS</div>
         </div>
         {detailsActive && 
           <ul style={{lineHeight: "1.4", listStyleType: "disc", listStylePosition: "inside"}}>

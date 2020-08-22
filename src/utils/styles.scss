@@ -10,14 +10,17 @@
 	src: url('AvenirLTStd-Heavy.otf');
 }
 
-body { overflow-x: hidden; }
+/*#___gatsby { 
+	@media only screen and (max-width: 768px) {
+	overflow-x: hidden!important;
+width: 100vw!important; 
+}}*/
 
 @media only screen and (max-width: 768px) {
 	.mobile-only-header {
 		position: sticky;
 		top: 0px;
 		z-index: 10;
-		background-color: red;
 	}
 	.desktop-only {
 		display: none;
@@ -46,8 +49,7 @@ body { overflow-x: hidden; }
       width: 100%;
       height: 100%;
       overflow: visible!important;
-
-    }
+}
 
 .outer-swiper-wrapper {
 	width: 100vw;
@@ -79,6 +81,7 @@ body { overflow-x: hidden; }
 
     .swiper-pagination-bullets {
     	/*margin-top: 32px!important;*/
+    	bottom: 0px!important;
     }
 
 
@@ -88,8 +91,20 @@ body { overflow-x: hidden; }
 	padding-right: 19px; 
 }
 
+.more-product-info-link {
+	margin-right: 36px;
+	@media only screen and (max-width: 768px) {
+		margin-right: 20px;
+	}
+}
 
-
+.buy-any-three {
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+}
 
 /*@font-face {
 font-family: 'PlayfairDisplay';

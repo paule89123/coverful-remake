@@ -5,6 +5,8 @@ import styled from '@emotion/styled'
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { push as Menu } from 'react-burger-menu'
+import { categoriesForMobileMenu } from '../components/Navigation/menu'
+import { collectionsForMobileMenu } from '../components/Navigation/menu'
 
 
 import ContextProvider from '~/provider/ContextProvider'
@@ -127,6 +129,14 @@ const SocialIcon = styled.div`
 
 const Layout = ({ children, location }) => {
   const [ email, setEmail ] = useState("")
+  const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false)
+
+  function openMobileMenu() {
+    setMobileMenuOpen(true)
+  }
+  function closeMobileMenu() {
+    setMobileMenuOpen(false)
+  }
 
   return (
     <ContextProvider>
@@ -144,14 +154,15 @@ const Layout = ({ children, location }) => {
         render={data => (
           <div>
 
-            <Menu styles={styles} isOpen={true} pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
-            <a>Home</a>
-          <a>About</a>
-          <a>Contact</a>
-          <a>Settings</a>
+            <Menu styles={styles} isOpen={mobileMenuOpen} onOpen={ openMobileMenu } onClose={ closeMobileMenu } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+            <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>COLLECTIONS</div>
+            <div>{collectionsForMobileMenu}</div>
+            <br /><br />
+            <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>CATEGORIES</div>
+            <div>{categoriesForMobileMenu}</div>
           </Menu>
   <main id="page-wrap">
-            <Navigation location={location} siteTitle={data.site.siteMetadata.title} />
+            <Navigation openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
 
             <Wrapper>
               {children}

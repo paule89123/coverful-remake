@@ -105,6 +105,28 @@ html {
 	}
 }
 
+.bm-burger-button {
+	opacity: 0;
+	height: 0px!important;
+}
+
+.bm-menu {
+	background: white!important;
+}
+
+.bm-cross-button {
+	margin-top: 9px;
+}
+.bm-cross {
+	width: 2px!important;
+	background: rgb(32,32,32)!important;
+	border-radius: 100px;
+	margin-left: -3px!important;
+	height: 18px!important;
+}
+.burger {
+	cursor: pointer;
+}
 /*@font-face {
 font-family: 'PlayfairDisplay';
 src: url('AvenirLTStd-Heavy.otf');

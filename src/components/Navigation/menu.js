@@ -27,13 +27,51 @@ const menuStyle = {
 	paddingTop: 39,
 }
 
+const categoriesVariables = [animals, art, famousfaces]
+	const categoriesStrings = ["Animals", "Art", "Famous Faces", "Film/TV", "Food", "Patterns", "Japanese", "Nature", "Retro", "Surreal"]
+	const collectionsStrings = ["New In", "Most Loved", "Collections", "Final Few"]
+	
+
+	export const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
+				const slug = item.replace(/\s+/g, '-').toLowerCase()
+				const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
+				const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
+				
+				return (
+					<Link to={`categories/${slug}`}>
+						<div style={menuLinkStyle}>
+							{item}
+						</div>
+					</Link>
+					)
+				}
+			)
+
+	export const collectionsForMobileMenu = collectionsStrings.map((item, i) => {
+				const slug = item.replace(/\s+/g, '-').toLowerCase()
+				const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
+				const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
+				
+				return (
+					<Link to={`categories/${slug}`}>
+						<div style={menuLinkStyle}>
+							{item}
+						</div>
+					</Link>
+					)
+				}
+			)
+
+	
+
 const Menu = ({ menuActive }) => {
 	const [ activeCategory, setActiveCategory ] = useState(animals)
 
-	const categoriesVariables = [animals, art, famousfaces]
-	const categoriesStrings = ["Animals", "Art", "Famous Faces", "Film/TV", "Food", "Patterns", "Japanese", "Nature", "Retro", "Surreal"]
-	const collections = ["New In", "Most Loved", "Collections", "Final Few"]
-	const categories = categoriesStrings.concat(collections).map((item, i) => {
+	function handleMouseOver(category) {
+		setActiveCategory(category)
+	}
+
+	const categories = categoriesStrings.concat(collectionsStrings).map((item, i) => {
 				const slug = item.replace(/\s+/g, '-').toLowerCase()
 				const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
 				let menuLinkStyle = {}
@@ -51,10 +89,6 @@ const Menu = ({ menuActive }) => {
 					)
 				}
 			)
-
-	function handleMouseOver(category) {
-		setActiveCategory(category)
-	}
 
 	return (
 		<div style={menuActive ? menuStyle : {display: "none"}}>

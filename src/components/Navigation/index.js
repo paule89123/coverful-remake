@@ -57,7 +57,7 @@ const useQuantity = () => {
 	return [total !== 0, total]
 }
 
-const Navigation = ({ siteTitle, location }) => {
+const Navigation = ({ siteTitle, location, openMobileMenu }) => {
   const [ hasItems, quantity ] = useQuantity()
   const [ searchTerm, setSearchTerm ] = useState("")
   const [ searchActive, setSearchActive ] = useState(false)
@@ -103,7 +103,7 @@ const Navigation = ({ siteTitle, location }) => {
 
 	return(
 		<>
-		<div style={{zIndex: "1300", height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
+		<div style={{height: "2.535rem", color: "rgb(38,38,38)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: 14, backgroundColor: "#f7f7f7"}}>Enjoy free delivery on all UK orders! ✨
 				</div>
 		<div className="desktop-only desktop-only-header">
 			<InstantSearch searchClient={searchClient} indexName="coverful">
@@ -196,7 +196,7 @@ const Navigation = ({ siteTitle, location }) => {
 					<Container className="black-text">
 
 
-					<img alt="basket" style={{height: 18}} src={menuIcon} />
+					<img className="burger" alt="menu" style={{height: 18}} src={menuIcon} onClick={openMobileMenu} />
 						<div>
 							<Logo to='/'>
 								{siteTitle}

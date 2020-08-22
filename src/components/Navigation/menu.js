@@ -28,39 +28,11 @@ const menuStyle = {
 }
 
 const categoriesVariables = [animals, art, famousfaces]
-	const categoriesStrings = ["Animals", "Art", "Famous Faces", "Film/TV", "Food", "Patterns", "Japanese", "Nature", "Retro", "Surreal"]
-	const collectionsStrings = ["New In", "Most Loved", "Collections", "Final Few"]
+	export const categoriesStrings = ["Animals", "Art", "Famous Faces", "Film/TV", "Food", "Patterns", "Japanese", "Nature", "Retro", "Surreal"]
+	export const collectionsStrings = ["New In", "Most Loved", "Collections", "Final Few"]
 	
 
-	export const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
-				const slug = item.replace(/\s+/g, '-').toLowerCase()
-				const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
-				const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
-				
-				return (
-					<Link to={`categories/${slug}`}>
-						<div style={menuLinkStyle}>
-							{item}
-						</div>
-					</Link>
-					)
-				}
-			)
-
-	export const collectionsForMobileMenu = collectionsStrings.map((item, i) => {
-				const slug = item.replace(/\s+/g, '-').toLowerCase()
-				const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
-				const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
-				
-				return (
-					<Link to={`categories/${slug}`}>
-						<div style={menuLinkStyle}>
-							{item}
-						</div>
-					</Link>
-					)
-				}
-			)
+	
 
 	
 

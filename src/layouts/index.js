@@ -5,8 +5,8 @@ import styled from '@emotion/styled'
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { push as Menu } from 'react-burger-menu'
-import { categoriesForMobileMenu } from '../components/Navigation/menu'
-import { collectionsForMobileMenu } from '../components/Navigation/menu'
+import { categoriesStrings } from '../components/Navigation/menu'
+import { collectionsStrings } from '../components/Navigation/menu'
 
 
 import ContextProvider from '~/provider/ContextProvider'
@@ -137,6 +137,40 @@ const Layout = ({ children, location }) => {
   function closeMobileMenu() {
     setMobileMenuOpen(false)
   }
+  function closeMobileMenuFromLink() {
+    setTimeout(() => setMobileMenuOpen(false), 50)
+  }
+
+  const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
+        const slug = item.replace(/\s+/g, '-').toLowerCase()
+        const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
+        const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
+        
+        return (
+          <a onClick={closeMobileMenuFromLink}><Link to={`categories/${slug}`}>
+            <div  className="menu-item" style={menuLinkStyle}>
+              {item}
+            </div>
+          </Link>
+          </a>
+          )
+        }
+      )
+
+  const collectionsForMobileMenu = collectionsStrings.map((item, i) => {
+        const slug = item.replace(/\s+/g, '-').toLowerCase()
+        const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
+        const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
+        
+        return (
+          <Link to={`categories/${slug}`}>
+            <div onClick={closeMobileMenu} className="menu-item" style={menuLinkStyle}>
+              {item}
+            </div>
+          </Link>
+          )
+        }
+      )
 
   return (
     <ContextProvider>

@@ -10,17 +10,17 @@
 	src: url('AvenirLTStd-Heavy.otf');
 }
 
-/*#___gatsby { 
-	@media only screen and (max-width: 768px) {
-	overflow-x: hidden!important;
-width: 100vw!important; 
-}}*/
+html { 
+	/*@media only screen and (max-width: 768px) {*/
+	overflow-x: visible!important;
+/*width: 100vw!important; */
+}
 
 @media only screen and (max-width: 768px) {
 	.mobile-only-header {
 		position: sticky;
 		top: 0px;
-		z-index: 10;
+		z-index: 2;
 	}
 	.desktop-only {
 		display: none;
@@ -34,8 +34,7 @@ width: 100vw!important;
 	.desktop-only-header {
 		position: sticky;
 		top: 0px;
-		z-index: 10;
-		background-color: red;
+		z-index: 2;
 	}
 	.desktop-only {
 		display: block;

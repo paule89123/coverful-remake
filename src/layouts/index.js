@@ -4,11 +4,58 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { push as Menu } from 'react-burger-menu'
+
 
 import ContextProvider from '~/provider/ContextProvider'
 
 import { GlobalStyle } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
+
+const styles = {
+  bmBurgerButton: {
+    position: 'fixed',
+    width: '36px',
+    height: '30px',
+    left: '36px',
+    top: '36px'
+  },
+  bmBurgerBars: {
+    background: '#373a47'
+  },
+  bmBurgerBarsHover: {
+    background: '#a90000'
+  },
+  bmCrossButton: {
+    height: '24px',
+    width: '24px'
+  },
+  bmCross: {
+    background: '#bdc3c7'
+  },
+  bmMenuWrap: {
+    position: 'fixed',
+    height: '100%'
+  },
+  bmMenu: {
+    background: '#373a47',
+    padding: '2.5em 1.5em 0',
+    fontSize: '1.15em'
+  },
+  bmMorphShape: {
+    fill: '#373a47'
+  },
+  bmItemList: {
+    color: '#b8b7ad',
+    padding: '0.8em'
+  },
+  bmItem: {
+    display: 'inline-block'
+  },
+  bmOverlay: {
+    background: 'rgba(0, 0, 0, 0.3)'
+  }
+}
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -96,7 +143,16 @@ const Layout = ({ children, location }) => {
         `}
         render={data => (
           <div>
+
+            <Menu styles={styles} isOpen={true} pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+            <a>Home</a>
+          <a>About</a>
+          <a>Contact</a>
+          <a>Settings</a>
+          </Menu>
+  <main id="page-wrap">
             <Navigation location={location} siteTitle={data.site.siteMetadata.title} />
+
             <Wrapper>
               {children}
               <footer>
@@ -212,7 +268,9 @@ const Layout = ({ children, location }) => {
 
               </footer>
             </Wrapper>
+            </main>
           </div>
+
         )}
       />
     </ContextProvider>

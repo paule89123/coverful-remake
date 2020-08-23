@@ -21,6 +21,7 @@ import { InstantSearch, SearchBox, Hits, Pagination, Stats } from 'react-instant
 import StoreContext from '~/context/StoreContext'
 import {
 	CartCounter, 
+	CartCounterMobile, 
 	Container,
 	Logo,
 	MenuLink,
@@ -211,7 +212,7 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 
 						<MenuLink style={{position: "relative", fontSize: 12, fontWeight: "400", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
 							<img alt="basket" style={{height: 24, width: 20, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
-							{hasItems && <CartCounter>{quantity}</CartCounter>}
+							{hasItems && <CartCounterMobile>{quantity}</CartCounterMobile>}
 						</MenuLink>
 						</div>
 

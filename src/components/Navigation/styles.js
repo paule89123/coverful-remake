@@ -61,6 +61,19 @@ export const CartCounter = styled.div`
   z-index: 20;
   letter-spacing: 0px;
 `
+export const CartCounterMobile = styled.div`
+  position: absolute;
+  top: 13px;
+  margin-left: 2px;
+  height: 18px;
+  line-height: 16px;
+  width: 20px;
+  text-align: center;
+  color: white;
+  font-size: 11px;
+  z-index: 20;
+  letter-spacing: 0px;
+`
 
     
      

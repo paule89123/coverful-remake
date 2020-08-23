@@ -204,7 +204,7 @@ const Layout = ({ children, location }) => {
         render={data => (
           <div>
 
-            <Menu styles={styles} isOpen={mobileMenuOpen} onOpen={ openMobileMenu } onClose={ closeMobileMenu } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+            <Menu styles={styles} isOpen={mobileMenuOpen} onOpen={openMobileMenu} onClose={closeMobileMenu} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
             <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>COLLECTIONS</div>
             <div>{collectionsForMobileMenu}</div>
             <br /><br />
@@ -212,13 +212,11 @@ const Layout = ({ children, location }) => {
             <div>{categoriesForMobileMenu}</div>
           </Menu>
 
-          <Menu right styles={styles} isOpen={mobileCartOpen} onOpen={ openMobileCart } onClose={ closeMobileCart } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+          <Menu right styles={styles} isOpen={mobileCartOpen} onOpen={openMobileCart} onClose={closeMobileCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
             <Cart />
           </Menu>
 
-          <MenuSlide right styles={styles} isOpen={desktopCartOpen} onOpen={ openDesktopCart } onClose={ closeDesktopCart } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
-            <Cart />
-          </MenuSlide>
+          
 
   <main id="page-wrap">
             <Navigation closeDesktopCart={closeDesktopCart} closeMobileCart={closeMobileCart} openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />

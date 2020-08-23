@@ -58,7 +58,7 @@ const useQuantity = () => {
 	return [total !== 0, total]
 }
 
-const Navigation = ({ siteTitle, location, openMobileMenu }) => {
+const Navigation = ({ siteTitle, location, openMobileMenu, openMobileCart, openDesktopCart }) => {
   const [ hasItems, quantity ] = useQuantity()
   const [ searchTerm, setSearchTerm ] = useState("")
   const [ searchActive, setSearchActive ] = useState(false)
@@ -154,12 +154,12 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 							</div>
 						</div>
 
-						<MenuLink to='/cart'>
-							<div style={{position: "relative", display: "flex", fontSize: 12, fontWeight: "400", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}}>
+
+							<div onClick={openDesktopCart} style={{position: "relative", display: "flex", fontSize: 12, fontWeight: "400", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}}>
 							<img alt="basket" style={{height: 24, width: 20, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounter>{quantity}</CartCounter>}
 							</div>
-						</MenuLink>
+
 						</div>
 
 					</Container>
@@ -210,10 +210,10 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 						<div style={{display: "flex"}}>
 						
 
-						<MenuLink style={{position: "relative", fontSize: 12, fontWeight: "400", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
+						<div onClick={openMobileCart} style={{position: "relative", fontSize: 12, fontWeight: "400", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}}>
 							<img alt="basket" style={{height: 24, width: 20, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounterMobile>{quantity}</CartCounterMobile>}
-						</MenuLink>
+						</div>
 						</div>
 
 					</Container>

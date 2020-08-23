@@ -5,8 +5,10 @@ import styled from '@emotion/styled'
 import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { push as Menu } from 'react-burger-menu'
+import { slide as MenuSlide } from 'react-burger-menu'
 import { categoriesStrings } from '../components/Navigation/menu'
 import { collectionsStrings } from '../components/Navigation/menu'
+import Cart from '../components/cart'
 
 
 import ContextProvider from '~/provider/ContextProvider'
@@ -130,12 +132,26 @@ const SocialIcon = styled.div`
 const Layout = ({ children, location }) => {
   const [ email, setEmail ] = useState("")
   const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false)
+  const [ mobileCartOpen, setMobileCartOpen ] = useState(false)
+  const [ desktopCartOpen, setDesktopCartOpen ] = useState(false)
 
   function openMobileMenu() {
     setMobileMenuOpen(true)
   }
   function closeMobileMenu() {
     setMobileMenuOpen(false)
+  }
+  function openMobileCart() {
+    setMobileCartOpen(true)
+  }
+  function closeMobileCart() {
+    setMobileCartOpen(false)
+  }
+  function openDesktopCart() {
+    setDesktopCartOpen(true)
+  }
+  function closeDesktopCart() {
+    setDesktopCartOpen(false)
   }
   function closeMobileMenuFromLink() {
     setTimeout(() => setMobileMenuOpen(false), 50)
@@ -195,8 +211,17 @@ const Layout = ({ children, location }) => {
             <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>CATEGORIES</div>
             <div>{categoriesForMobileMenu}</div>
           </Menu>
+
+          <Menu right styles={styles} isOpen={mobileCartOpen} onOpen={ openMobileCart } onClose={ closeMobileCart } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+            <Cart />
+          </Menu>
+
+          <MenuSlide right styles={styles} isOpen={desktopCartOpen} onOpen={ openDesktopCart } onClose={ closeDesktopCart } pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+            <Cart />
+          </MenuSlide>
+
   <main id="page-wrap">
-            <Navigation openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
+            <Navigation closeDesktopCart={closeDesktopCart} closeMobileCart={closeMobileCart} openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
 
             <Wrapper>
               {children}

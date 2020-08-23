@@ -8,7 +8,7 @@ import { push as Menu } from 'react-burger-menu'
 import { slide as MenuSlide } from 'react-burger-menu'
 import { categoriesStrings } from '../components/Navigation/menu'
 import { collectionsStrings } from '../components/Navigation/menu'
-import Cart from '../components/cart'
+import Cart from '../components/Cart'
 
 
 import ContextProvider from '~/provider/ContextProvider'
@@ -212,9 +212,13 @@ const Layout = ({ children, location }) => {
             <div>{categoriesForMobileMenu}</div>
           </Menu>
 
-         
+          <Menu right styles={styles} isOpen={mobileCartOpen} onOpen={openMobileCart} onClose={closeMobileCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
+            <Cart />
+          </Menu>
 
-          
+          <MenuSlide right styles={styles} isOpen={desktopCartOpen} onOpen={openDesktopCart} onClose={closeDesktopCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
+            <Cart />
+          </MenuSlide>
 
   <main id="page-wrap">
             <Navigation closeDesktopCart={closeDesktopCart} closeMobileCart={closeMobileCart} openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />

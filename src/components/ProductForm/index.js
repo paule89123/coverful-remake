@@ -161,7 +161,7 @@ const inactiveStyle = {
       <div>
         <div style={{borderBottom: "1px solid rgba(0,0,0,0.2)", marginBottom: 16}}>
           <div className="more-product-info-link" onClick={handleDetailsClick} style={detailsActive ? activeStyle : inactiveStyle}>DETAILS</div>
-          <div className="more-product-info-link" onClick={handleShippingClick} style={shippingActive ? activeStyle : inactiveStyle}>SHIPPING, RETURNS & REFUNDS</div>
+          <div className="more-product-info-link2" onClick={handleShippingClick} style={shippingActive ? activeStyle : inactiveStyle}>SHIPPING, RETURNS & REFUNDS</div>
         </div>
         {detailsActive && 
           <ul style={{lineHeight: "1.4", listStyleType: "disc", listStylePosition: "inside"}}>

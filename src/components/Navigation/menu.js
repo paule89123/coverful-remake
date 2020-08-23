@@ -64,7 +64,7 @@ const Menu = ({ menuActive }) => {
 
 	return (
 		<div style={menuActive ? menuStyle : {display: "none"}}>
-				<div style={{display: "flex", fontSize: 14}}>
+				<div style={{display: "flex", fontSize: 14, alignItems: "flex-start"}}>
 					<img style={{width: 220, margin: "0px 79px 39px 79px"}} alt={`./${activeCategory}.jpeg`} src={activeCategory} />
 					<Column>
 						<div style={{fontFamily: "AvenirBold", paddingBottom: 13}}>Categories</div>

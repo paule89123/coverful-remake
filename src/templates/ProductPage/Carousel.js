@@ -16,7 +16,7 @@ export default (props) => {
   return (
     <div className="outer-swiper-wrapper">
     <Swiper
-      spaceBetween={30}
+      spaceBetween={0}
       slidesPerView={1}
       pagination={{ clickable: true }}
       onSwiper={(swiper) => console.log(swiper)}

@@ -68,13 +68,28 @@ export const GlobalStyle = props => (
         padding-bottom: 1px;
         border-radius: 3px;
       }
+      input {
+-webkit-appearance: none;
+}
+input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input::placeholder {
+  color: rgba(0,0,0,0.4);
+  opacity: 1;
+}
+
       .ais-SearchBox-input {
-        background-color: rgba(0,0,0,0.02);
+        background-color: rgba(250,250,250);
         border: none;
         border: 1px solid rgba(0,0,0,0.06);
         border-radius: 24px;
         padding: 10px 15px;
+        font-size: 13px;
+        height: 32px;
+        width: 192px;
       }
+
       ul {
         margin: 0;
         padding: 0;

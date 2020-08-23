@@ -37,7 +37,7 @@ const SearchResultsWrapper = styled.div`
 `
 
 const HoverLinkStyle = styled.div`
-	display: inline;
+	display: inline-block;
 	color: rgb(0,0,0);
 	opacity: 1;
 	transition: 0.2s opacity cubic-bezier(0.65, 0.005, 0.35, 0.995);
@@ -110,11 +110,11 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 				
 				<Wrapper>
 					<Container className="black-text">
-						<div>
+						<div style={{width: "100%"}}>
 							<Logo to='/' style={{paddingRight: 32, marginLeft: -2}}>
 								{siteTitle}
 							</Logo>
-							<div style={{fontSize: "15px", letterSpacing: 1, fontWeight: "bold", padding: "0px 16px 80px 10px", display: "inline"}} tabIndex="0" onMouseOut={handleOnMouseOut} onMouseOver={handleMouseOver}>
+							<div style={{fontSize: "15px", letterSpacing: 1, padding: "0px 16px 80px 10px", display: "inline"}} tabIndex="0" onMouseOut={handleOnMouseOut} onMouseOver={handleMouseOver}>
 							<div style={{width: 80, height: 40, position: "absolute", marginLeft: 0, display: "inline", cursor: "pointer"}}></div>
 
 								<span style={menuActive ? {opacity: 0.7, transition: "0.2s opacity cubic-bezier(0.65, 0.005, 0.35, 0.995)", cursor: "pointer"} : {opacity: "1", cursor: "pointer"}}>SHOP</span>
@@ -135,14 +135,14 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 								<Menu menuActive={menuActive} />
 							</div>
 							<HoverLinkStyle>
-								<MenuLink to='/cart'>
+								<MenuLink to='/about-us'>
 									ABOUT US
 								</MenuLink>
 							</HoverLinkStyle>
 						</div>
 
 
-						<div style={{display: "flex"}}>
+						<div style={{display: "flex", alignItems: "center"}}>
 						<div style={{width: 260, backgroundColor: "none"}}>
 							<div style={{textAlign: "center"}}>
 								<SearchBox onSubmit={handleSubmit} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur}/>
@@ -153,9 +153,11 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 							</div>
 						</div>
 
-						<MenuLink style={{position: "relative", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
-							<img alt="basket" style={{height: 22, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
+						<MenuLink to='/cart'>
+							<div style={{position: "relative", display: "flex", fontSize: 12, fontWeight: "400", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}}>
+							<img alt="basket" style={{height: 24.03, width: 19.82, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounter>{quantity}</CartCounter>}
+							</div>
 						</MenuLink>
 						</div>
 
@@ -207,8 +209,8 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 						<div style={{display: "flex"}}>
 						
 
-						<MenuLink style={{position: "relative", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
-							<img alt="basket" style={{height: 22, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
+						<MenuLink style={{position: "relative", fontSize: 12, fontWeight: "400", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
+							<img alt="basket" style={{height: 24.03, width: 19.82, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounter>{quantity}</CartCounter>}
 						</MenuLink>
 						</div>

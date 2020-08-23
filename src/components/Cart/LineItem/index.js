@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 
 import StoreContext from '~/context/StoreContext'
-import { Wrapper } from './styles'
+import { Rapper } from './styles'
 
 const LineItem = props => {
   const { line_item } = props
@@ -30,7 +30,7 @@ const LineItem = props => {
   }
 
   return (
-    <Wrapper>
+    <Rapper>
       {console.log(line_item)}
       <Link to={`/products/${line_item.variant.product.handle}/`}>
         {variantImage}
@@ -48,7 +48,7 @@ const LineItem = props => {
       {"£" + line_item.variant.price * line_item.quantity + ".00"}
       </p>
       <button onClick={handleRemove}>Remove</button>
-    </Wrapper>
+    </Rapper>
   )
 }
 

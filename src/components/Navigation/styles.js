@@ -53,7 +53,7 @@ export const CartCounter = styled.div`
   top: 14px;
   margin-left: 2px;
   height: 18px;
-  line-height: 1.5;
+  line-height: 16px;
   width: 20px;
   text-align: center;
   color: white;

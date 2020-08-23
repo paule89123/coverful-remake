@@ -155,7 +155,7 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 
 						<MenuLink to='/cart'>
 							<div style={{position: "relative", display: "flex", fontSize: 12, fontWeight: "400", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}}>
-							<img alt="basket" style={{height: 24.03, width: 19.82, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
+							<img alt="basket" style={{height: 24, width: 20, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounter>{quantity}</CartCounter>}
 							</div>
 						</MenuLink>
@@ -210,7 +210,7 @@ const Navigation = ({ siteTitle, location, openMobileMenu }) => {
 						
 
 						<MenuLink style={{position: "relative", fontSize: 12, fontWeight: "400", display: "flex", justifyContent: "center", height: "36px", alignItems: "center", paddingRight: 0, width: 22}} to='/cart'>
-							<img alt="basket" style={{height: 24.03, width: 19.82, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
+							<img alt="basket" style={{height: 24, width: 20, position: "absolute", marginLeft: 2}} src={hasItems ? blackBag : whiteBag} />
 							{hasItems && <CartCounter>{quantity}</CartCounter>}
 						</MenuLink>
 						</div>

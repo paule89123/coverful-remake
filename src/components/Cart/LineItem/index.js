@@ -31,23 +31,42 @@ const LineItem = props => {
 
   return (
     <Rapper>
-      {console.log(line_item)}
+
+    <div style={{display: "inline-block", backgroundColor: "rgba(0,0,0,0.0)", marginRight: 16}}>
       <Link to={`/products/${line_item.variant.product.handle}/`}>
         {variantImage}
       </Link>
-      <p>
-        {line_item.title}
-      </p>
-      <p>
-      {selectedOptions}
-      </p>
-      <p>
-      {line_item.quantity}
-      </p>
-      <p>
-      {"£" + line_item.variant.price * line_item.quantity + ".00"}
-      </p>
-      <button onClick={handleRemove}>Remove</button>
+    </div>
+
+      <div style={{display: "inline-block", flexGrow: "1"}}>
+          <Link to={`/products/${line_item.variant.product.handle}/`}>
+              <div style={{fontSize: 16, fontFamily: "AvenirBold", marginBottom: 4}}>
+                {line_item.title}
+              </div>
+          </Link>
+          <div style={{fontSize: 14, marginBottom: 4, opacity: "0.6"}}>
+              {selectedOptions}
+          </div>
+
+
+          <div style={{backgroundColor: "rgb(255,255,255)", display: "inline-block", borderRadius: "50px", fontSize: 12, overflow: "hidden", border: "1px solid rgb(228,229,230)"}}>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "4px 0px 0px 4px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>-</div>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "50px", borderTop: "0px solid rgb(255,255,255)", borderBottom: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>{line_item.quantity}</div>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "0px 4px 4px 0px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>+</div>
+          </div>
+          
+      </div>
+
+      <div style={{display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
+
+          <div className="cross" onClick={handleRemove}></div>
+        <div style={{fontSize: 16, fontFamily: "AvenirBold"}}>
+              {
+                "£" + line_item.variant.price
+              }
+        </div>
+</div>
+
     </Rapper>
   )
 }

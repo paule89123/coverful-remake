@@ -44,10 +44,6 @@ const Cart = (props) => {
       <p>£{checkout.subtotalPrice}</p>
       <p>{numberOfItems > 2 && "Discount applied (Promotion: Buy 3+ items, save £10)"}</p>
       <br />
-      <br />
-      <h2>Total</h2>
-      <p>£{checkout.totalPrice}</p>
-      <br />
       <button onClick={handleCheckout} disabled={checkout.lineItems.length === 0}>Check out</button>
       </>
     }

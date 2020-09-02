@@ -2,8 +2,6 @@ import styled from '@emotion/styled'
 
 export const Rapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 2rem 0 2rem 0;
+  padding: 1.125rem 0 1.125rem 0;
+  border-bottom: 1px solid rgba(218,219,220);
 `

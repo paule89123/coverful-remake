@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 
 import StoreContext from '~/context/StoreContext'
@@ -8,6 +8,7 @@ const LineItem = props => {
   const { line_item } = props
   const {
     removeLineItem,
+    updateLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
@@ -15,7 +16,7 @@ const LineItem = props => {
     <img
       src={line_item.variant.image.src}
       alt={`${line_item.title} product shot`}
-      height="60px"
+      height="70px"
     />
   ) : null
 
@@ -29,14 +30,30 @@ const LineItem = props => {
     removeLineItem(client, checkout.id, line_item.id)
   }
 
+  const [quantity, setQuantity] = useState(line_item.quantity)
+
+  const handleQuantityUpdate = (num) => {
+    setQuantity(prevState => prevState + num)
+  }
+
+  useEffect(() => {
+    updateLineItem(client, checkout.id, line_item.id, quantity)
+  }, [quantity])
+
+
+
   return (
     <Rapper>
 
-    <div style={{display: "inline-block", backgroundColor: "rgba(0,0,0,0.0)", marginRight: 16}}>
+    
+
+      <div style={{display: "inline-block", backgroundColor: "rgba(0,0,0,0.0)", marginRight: 16}}>
       <Link to={`/products/${line_item.variant.product.handle}/`}>
         {variantImage}
-      </Link>
+        </Link>
     </div>
+
+
 
       <div style={{display: "inline-block", flexGrow: "1"}}>
           <Link to={`/products/${line_item.variant.product.handle}/`}>
@@ -49,10 +66,10 @@ const LineItem = props => {
           </div>
 
 
-          <div style={{backgroundColor: "rgb(255,255,255)", display: "inline-block", borderRadius: "50px", fontSize: 12, overflow: "hidden", border: "1px solid rgb(228,229,230)"}}>
-          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "4px 0px 0px 4px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>-</div>
-          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "50px", borderTop: "0px solid rgb(255,255,255)", borderBottom: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>{line_item.quantity}</div>
-          <div style={{textAlign: "center", lineHeight: "24px", width: 22, display: "inline-block", height: 22, borderRadius: "0px 4px 4px 0px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>+</div>
+          <div style={{backgroundColor: "rgb(255,255,255)", display: "inline-block", borderRadius: "50px", fontSize: 12, overflow: "hidden", border: "1px solid rgb(228,229,230)", padding: "0px 8px"}}>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 20, display: "inline-block", height: 22, borderRadius: "4px 0px 0px 4px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)", cursor: "pointer"}} onClick={() => handleQuantityUpdate(-1)}>−</div>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 20, display: "inline-block", height: 22, borderRadius: "50px", borderTop: "0px solid rgb(255,255,255)", borderBottom: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)"}}>{quantity}</div>
+          <div style={{textAlign: "center", lineHeight: "24px", width: 20, display: "inline-block", height: 22, borderRadius: "0px 4px 4px 0px", border: "1px solid rgb(255,255,255)", backgroundColor: "rgb(255,255,255)", cursor: "pointer"}} onClick={() => handleQuantityUpdate(1)}>+</div>
           </div>
           
       </div>

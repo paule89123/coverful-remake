@@ -212,16 +212,20 @@ const Layout = ({ children, location }) => {
             <div>{categoriesForMobileMenu}</div>
           </Menu>
 
+<div className="my-cart">
           <Menu right width={"100vw"} styles={styles} isOpen={mobileCartOpen} onOpen={openMobileCart} onClose={closeMobileCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart mobile={true} />
+            <Cart closeMobileCart={closeMobileCart} mobile={true} />
           </Menu>
+          </div>
 
+<div className="my-cart">
           <MenuSlide width={"448px"} right styles={styles} isOpen={desktopCartOpen} onOpen={openDesktopCart} onClose={closeDesktopCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart />
+            <Cart closeDesktopCart={closeDesktopCart} />
           </MenuSlide>
+          </div>
 
   <main id="page-wrap">
-            <Navigation closeDesktopCart={closeDesktopCart} closeMobileCart={closeMobileCart} openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
+            <Navigation openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
 
             <Wrapper>
               {children}

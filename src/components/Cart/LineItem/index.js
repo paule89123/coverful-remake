@@ -47,7 +47,7 @@ const LineItem = props => {
 
     
 
-      <div style={{display: "inline-block", backgroundColor: "rgba(0,0,0,0.0)", marginRight: 16}}>
+      <div onClick={() => props.closeCartFromLink()} style={{display: "inline-block", backgroundColor: "rgba(0,0,0,0.0)", marginRight: 16}}>
       <Link to={`/products/${line_item.variant.product.handle}/`}>
         {variantImage}
         </Link>
@@ -55,7 +55,7 @@ const LineItem = props => {
 
 
 
-      <div style={{display: "inline-block", flexGrow: "1"}}>
+      <div onClick={() => props.closeCartFromLink()} style={{display: "inline-block", flexGrow: "1"}}>
           <Link to={`/products/${line_item.variant.product.handle}/`}>
               <div style={{fontSize: 16, fontFamily: "AvenirBold", marginBottom: 4}}>
                 {line_item.title}

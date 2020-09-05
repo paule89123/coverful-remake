@@ -16,7 +16,7 @@ const Cart = (props) => {
   }
 
   const line_items = checkout.lineItems.map(line_item => {
-    return <LineItem key={line_item.id.toString()} line_item={line_item} />
+    return <LineItem closeCartFromLink={props.closeCartFromLink} key={line_item.id.toString()} line_item={line_item} />
   })
 
   let quantityArr = checkout.lineItems.map(line_item => line_item.quantity)
@@ -46,7 +46,7 @@ const Cart = (props) => {
         <div style={{height: "calc(100vh - 222px)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
         <div style={{marginBottom: 41, textAlign: "center", fontSize: 24, fontFamily: "AvenirBold"}}>Your bag is empty</div> 
         <div style={{marginBottom: 41, textAlign: "center", fontSize: 16, fontFamily: "AvenirBold"}}>Questions about buying? <Link style={{color: "dodgerblue"}} to='/contact'>Contact us</Link></div> 
-        <div style={{display: "inline-block", fontSize: 14, fontFamily: "AvenirBold", padding: "16px 40px", border: "1px solid rgba(38,38,38,0.9)"}}>Continue Shopping</div> 
+        <div style={{cursor: "pointer", display: "inline-block", fontSize: 14, fontFamily: "AvenirBold", padding: "16px 40px", border: "1px solid rgba(38,38,38,0.9)"}} onClick={() => props.mobile ? props.closeMobileCart() : props.closeDesktopCart()}>Continue Shopping</div> 
         </div>
         :
         <div style={{width: "100%", boxSizing: "border-box", maxWidth: props.mobile ? "100vw" : "448px"}}>

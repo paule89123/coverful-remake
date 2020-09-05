@@ -156,6 +156,10 @@ const Layout = ({ children, location }) => {
   function closeMobileMenuFromLink() {
     setTimeout(() => setMobileMenuOpen(false), 50)
   }
+  function closeCartFromLink() {
+    setMobileCartOpen(false)
+    setDesktopCartOpen(false)
+  }
 
   const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
         const slug = item.replace(/\s+/g, '-').toLowerCase()
@@ -202,7 +206,7 @@ const Layout = ({ children, location }) => {
           }
         `}
         render={data => (
-          <div>
+          <div style={{height: "100vh", overflow: !mobileCartOpen && !mobileMenuOpen && !desktopCartOpen ? "auto" : "hidden"}}>
 
             <Menu styles={styles} isOpen={mobileMenuOpen} onOpen={openMobileMenu} onClose={closeMobileMenu} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
             <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>COLLECTIONS</div>
@@ -214,13 +218,13 @@ const Layout = ({ children, location }) => {
 
 <div className="my-cart">
           <Menu right width={"100vw"} styles={styles} isOpen={mobileCartOpen} onOpen={openMobileCart} onClose={closeMobileCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart closeMobileCart={closeMobileCart} mobile={true} />
+            <Cart closeCartFromLink={closeCartFromLink} closeMobileCart={closeMobileCart} mobile={true} />
           </Menu>
           </div>
 
 <div className="my-cart">
           <MenuSlide width={"448px"} right styles={styles} isOpen={desktopCartOpen} onOpen={openDesktopCart} onClose={closeDesktopCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart closeDesktopCart={closeDesktopCart} />
+            <Cart closeCartFromLink={closeCartFromLink} closeDesktopCart={closeDesktopCart} />
           </MenuSlide>
           </div>
 

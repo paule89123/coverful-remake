@@ -230,17 +230,7 @@ const Layout = ({ children, location }) => {
           }
         `}
         render={data => (
-          <div
-            style={{
-              height: '100vh',
-              width: '100vw',
-              overflowX: 'hidden',
-              overflowY:
-                !mobileCartOpen && !mobileMenuOpen && !desktopCartOpen
-                  ? 'auto'
-                  : 'hidden',
-            }}
-          >
+          <div>
             <Menu
               styles={styles}
               isOpen={mobileMenuOpen}

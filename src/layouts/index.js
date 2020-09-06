@@ -190,7 +190,7 @@ const Layout = ({ children, location }) => {
 
     return (
       <a onClick={closeMobileMenuFromLink}>
-        <Link to={`categories/${slug}`}>
+        <Link to={`${slug}`}>
           <div className="menu-item" style={menuLinkStyle}>
             {item}
           </div>

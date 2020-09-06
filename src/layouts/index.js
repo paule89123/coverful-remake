@@ -233,7 +233,9 @@ const Layout = ({ children, location }) => {
           <div
             style={{
               height: '100vh',
-              overflow:
+              width: '100vw',
+              overflowX: 'hidden',
+              overflowY:
                 !mobileCartOpen && !mobileMenuOpen && !desktopCartOpen
                   ? 'auto'
                   : 'hidden',

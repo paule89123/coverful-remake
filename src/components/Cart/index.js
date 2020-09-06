@@ -43,7 +43,7 @@ const Cart = (props) => {
 
 
       {!numberOfItems ? 
-        <div style={{height: "calc(100vh - 222px)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div style={{height: "calc(100vh - 322px)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
         <div style={{marginBottom: 41, textAlign: "center", fontSize: 24, fontFamily: "AvenirBold"}}>Your bag is empty</div> 
         <div style={{marginBottom: 41, textAlign: "center", fontSize: 16, fontFamily: "AvenirBold"}}>Questions about buying? <Link style={{color: "dodgerblue"}} to='/contact'>Contact us</Link></div> 
         <div style={{cursor: "pointer", display: "inline-block", fontSize: 14, fontFamily: "AvenirBold", padding: "16px 40px", border: "1px solid rgba(38,38,38,0.9)"}} onClick={() => props.mobile ? props.closeMobileCart() : props.closeDesktopCart()}>Continue Shopping</div> 

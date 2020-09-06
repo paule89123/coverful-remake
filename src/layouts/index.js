@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { push as Menu } from 'react-burger-menu'
 import { slide as MenuSlide } from 'react-burger-menu'
 import { categoriesStrings } from '../components/Navigation/menu'
 import { collectionsStrings } from '../components/Navigation/menu'
 import Cart from '../components/Cart'
-
 
 import ContextProvider from '~/provider/ContextProvider'
 
@@ -22,43 +25,43 @@ const styles = {
     width: '36px',
     height: '30px',
     left: '36px',
-    top: '36px'
+    top: '36px',
   },
   bmBurgerBars: {
-    background: '#373a47'
+    background: '#373a47',
   },
   bmBurgerBarsHover: {
-    background: '#a90000'
+    background: '#a90000',
   },
   bmCrossButton: {
     height: '24px',
-    width: '24px'
+    width: '24px',
   },
   bmCross: {
-    background: '#bdc3c7'
+    background: '#bdc3c7',
   },
   bmMenuWrap: {
     position: 'fixed',
-    height: '100%'
+    height: '100%',
   },
   bmMenu: {
     background: '#373a47',
     padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
+    fontSize: '1.15em',
   },
   bmMorphShape: {
-    fill: '#373a47'
+    fill: '#373a47',
   },
   bmItemList: {
     color: '#b8b7ad',
-    padding: '0.8em'
+    padding: '0.8em',
   },
   bmItem: {
-    display: 'inline-block'
+    display: 'inline-block',
   },
   bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
-  }
+    background: 'rgba(0, 0, 0, 0.3)',
+  },
 }
 
 const Wrapper = styled.div`
@@ -68,7 +71,7 @@ const Wrapper = styled.div`
 `
 const Footer = styled.div`
   background-color: rgb(250, 250, 250);
-  border-top: 1px solid rgb(240,240,240);
+  border-top: 1px solid rgb(240, 240, 240);
   position: relative;
   width: 100vw;
   left: 50%;
@@ -78,7 +81,7 @@ const Footer = styled.div`
 `
 const MobileFooter = styled.div`
   background-color: rgb(250, 250, 250);
-  border-top: 1px solid rgb(240,240,240);
+  border-top: 1px solid rgb(240, 240, 240);
   position: relative;
   width: 100vw;
   left: 50%;
@@ -89,7 +92,7 @@ const MobileFooter = styled.div`
 const FooterContents = styled.div`
   max-width: 980px;
   margin: 0 auto;
-  
+
   display: flex;
   opacity: 0.57;
   position: relative;
@@ -105,8 +108,7 @@ const MobileFooterContents = styled.div`
 `
 const Column = styled.div`
   width: 200px;
-  margin: 0px 18px 0px 18px;
-  
+  margin: 0px 36px 0px 0px;
 `
 const ColumnTitle = styled.div`
   font-size: 13px;
@@ -128,12 +130,11 @@ const SocialIcon = styled.div`
   }
 `
 
-
 const Layout = ({ children, location }) => {
-  const [ email, setEmail ] = useState("")
-  const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false)
-  const [ mobileCartOpen, setMobileCartOpen ] = useState(false)
-  const [ desktopCartOpen, setDesktopCartOpen ] = useState(false)
+  const [email, setEmail] = useState('')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileCartOpen, setMobileCartOpen] = useState(false)
+  const [desktopCartOpen, setDesktopCartOpen] = useState(false)
 
   function openMobileMenu() {
     setMobileMenuOpen(true)
@@ -162,35 +163,58 @@ const Layout = ({ children, location }) => {
   }
 
   const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
-        const slug = item.replace(/\s+/g, '-').toLowerCase()
-        const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
-        const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
-        
-        return (
-          <a onClick={closeMobileMenuFromLink}><Link to={`categories/${slug}`}>
-            <div  className="menu-item" style={menuLinkStyle}>
-              {item}
-            </div>
-          </Link>
-          </a>
-          )
-        }
-      )
+    const slug = item.replace(/\s+/g, '-').toLowerCase()
+    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+
+    return (
+      <a onClick={closeMobileMenuFromLink}>
+        <Link to={`categories/${slug}`}>
+          <div className="menu-item" style={menuLinkStyle}>
+            {item}
+          </div>
+        </Link>
+      </a>
+    )
+  })
+
+  const infoLinksForMobileMenu = [
+    'About us',
+    'Shipping & payment',
+    'Returns & refunds',
+  ].map((item, i) => {
+    const slug = item
+      .replace(/\s+/g, '-')
+      .replace('&', 'and')
+      .toLowerCase()
+    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+
+    return (
+      <a onClick={closeMobileMenuFromLink}>
+        <Link to={`categories/${slug}`}>
+          <div className="menu-item" style={menuLinkStyle}>
+            {item}
+          </div>
+        </Link>
+      </a>
+    )
+  })
 
   const collectionsForMobileMenu = collectionsStrings.map((item, i) => {
-        const slug = item.replace(/\s+/g, '-').toLowerCase()
-        const lowercaseName = item.replace(/\s+/g, '').toLowerCase()
-        const menuLinkStyle = {marginBottom: 13, opacity: "0.85"}
-        
-        return (
-          <Link to={`categories/${slug}`}>
-            <div onClick={closeMobileMenu} className="menu-item" style={menuLinkStyle}>
-              {item}
-            </div>
-          </Link>
-          )
-        }
-      )
+    const slug = item.replace(/\s+/g, '-').toLowerCase()
+    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+
+    return (
+      <Link to={`categories/${slug}`}>
+        <div
+          onClick={closeMobileMenu}
+          className="menu-item"
+          style={menuLinkStyle}
+        >
+          {item}
+        </div>
+      </Link>
+    )
+  })
 
   return (
     <ContextProvider>
@@ -206,149 +230,302 @@ const Layout = ({ children, location }) => {
           }
         `}
         render={data => (
-          <div style={{height: "100vh", overflow: !mobileCartOpen && !mobileMenuOpen && !desktopCartOpen ? "auto" : "hidden"}}>
+          <div
+            style={{
+              height: '100vh',
+              overflow:
+                !mobileCartOpen && !mobileMenuOpen && !desktopCartOpen
+                  ? 'auto'
+                  : 'hidden',
+            }}
+          >
+            <Menu
+              styles={styles}
+              isOpen={mobileMenuOpen}
+              onOpen={openMobileMenu}
+              onClose={closeMobileMenu}
+              pageWrapId={'page-wrap'}
+              outerContainerId={'outer-container'}
+            >
+              <div
+                style={{
+                  padding: '6px 0px',
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  width: '100%',
+                }}
+              >
+                COLLECTIONS
+              </div>
+              <div>{collectionsForMobileMenu}</div>
+              <br />
+              <br />
+              <div
+                style={{
+                  padding: '6px 0px',
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  width: '100%',
+                }}
+              >
+                CATEGORIES
+              </div>
+              <div>{categoriesForMobileMenu}</div>
+              <br />
+              <br />
+              <div
+                style={{
+                  padding: '6px 0px',
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  width: '100%',
+                }}
+              >
+                INFO
+              </div>
+              <div style={{ paddingBottom: 46 }}>{infoLinksForMobileMenu}</div>
+            </Menu>
 
-            <Menu styles={styles} isOpen={mobileMenuOpen} onOpen={openMobileMenu} onClose={closeMobileMenu} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>COLLECTIONS</div>
-            <div>{collectionsForMobileMenu}</div>
-            <br /><br />
-            <div style={{marginBottom: 13, letterSpacing: 1, fontSize: 14, width: "100%"}}>CATEGORIES</div>
-            <div>{categoriesForMobileMenu}</div>
-          </Menu>
+            <div className="my-cart">
+              <Menu
+                right
+                width={'100vw'}
+                styles={styles}
+                isOpen={mobileCartOpen}
+                onOpen={openMobileCart}
+                onClose={closeMobileCart}
+                pageWrapId={'page-wrap'}
+                outerContainerId={'outer-container'}
+              >
+                <Cart
+                  closeCartFromLink={closeCartFromLink}
+                  closeMobileCart={closeMobileCart}
+                  mobile={true}
+                />
+              </Menu>
+            </div>
 
-<div className="my-cart">
-          <Menu right width={"100vw"} styles={styles} isOpen={mobileCartOpen} onOpen={openMobileCart} onClose={closeMobileCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart closeCartFromLink={closeCartFromLink} closeMobileCart={closeMobileCart} mobile={true} />
-          </Menu>
-          </div>
+            <div className="my-cart">
+              <MenuSlide
+                width={'448px'}
+                right
+                styles={styles}
+                isOpen={desktopCartOpen}
+                onOpen={openDesktopCart}
+                onClose={closeDesktopCart}
+                pageWrapId={'page-wrap'}
+                outerContainerId={'outer-container'}
+              >
+                <Cart
+                  closeCartFromLink={closeCartFromLink}
+                  closeDesktopCart={closeDesktopCart}
+                />
+              </MenuSlide>
+            </div>
 
-<div className="my-cart">
-          <MenuSlide width={"448px"} right styles={styles} isOpen={desktopCartOpen} onOpen={openDesktopCart} onClose={closeDesktopCart} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-            <Cart closeCartFromLink={closeCartFromLink} closeDesktopCart={closeDesktopCart} />
-          </MenuSlide>
-          </div>
+            <main id="page-wrap">
+              <Navigation
+                openDesktopCart={openDesktopCart}
+                openMobileCart={openMobileCart}
+                openMobileMenu={openMobileMenu}
+                location={location}
+                siteTitle={data.site.siteMetadata.title}
+              />
 
-  <main id="page-wrap">
-            <Navigation openDesktopCart={openDesktopCart} openMobileCart={openMobileCart} openMobileMenu={openMobileMenu} location={location} siteTitle={data.site.siteMetadata.title} />
+              <Wrapper>
+                {children}
+                <footer>
+                  {
+                    //   <form action="https://app.convertkit.com/forms/1483772/subscriptions" method="post" data-sv-form="1483772" data-uid="06d47c66aa" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://convertkit.com?utm_source=dynamic&amp;utm_medium=referral&amp;utm_campaign=poweredby&amp;utm_content=form&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
+                    // <div class="formkit-background">
+                    // </div>
+                    // <div>
+                    // <div class="formkit-header" data-element="header">
+                    // <h1>Join the Newsletter</h1>
+                    // </div>
+                    // <div class="formkit-subheader" data-element="subheader">
+                    //   Subscribe to get our latest content by email.
+                    // </div>
+                    // <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert">
+                    // </ul>
+                    // <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+                    // <div class="formkit-field">
+                    // <input class="formkit-input" name="email_address" placeholder="Your email address" required="" type="email">
+                    // </input>
+                    // </div>
+                    // <button data-element="submit" class="formkit-submit formkit-submit">
+                    // <div class="formkit-spinner">
+                    // <div>
+                    // </div>
+                    // <div>
+                    // </div>
+                    // <div>
+                    // </div>
+                    // </div>
+                    // <span>
+                    // Subscribe
+                    // </span>
+                    // </button>
+                    // </div>
+                    // <div class="formkit-guarantee" data-element="guarantee">
+                    // We won't send you spam. Unsubscribe at any time.
+                    // </div>
+                    // </div>
+                    // </form>
+                  }
 
-            <Wrapper>
-              {children}
-              <footer>
+                  <Footer className="desktop-only">
+                    <FooterContents>
+                      <Column>
+                        <ColumnTitle>INFO</ColumnTitle>
+                        <Link to="/about-us">About us</Link>
+                        <br />
+                        <Link to="/shipping-and-payment">
+                          Shipping & payment
+                        </Link>
+                        <br />
+                        <Link to="returns-and-refunds">Returns & refunds</Link>
+                      </Column>
+                      <Column>
+                        <ColumnTitle>FOLLOW</ColumnTitle>
+                        <div
+                          style={{
+                            width: 78,
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                          }}
+                        >
+                          <a
+                            href="https://facebook.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 19, marginBottom: 1 }}
+                                icon={faFacebook}
+                              />
+                            </SocialIcon>
+                          </a>
+                          <a
+                            href="https://instagram.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 21, marginBottom: 0 }}
+                                icon={faInstagram}
+                              />
+                            </SocialIcon>
+                          </a>
+                          <a
+                            href="https://twitter.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 19, marginBottom: 0 }}
+                                icon={faTwitter}
+                              />
+                            </SocialIcon>
+                          </a>
+                        </div>
+                      </Column>
+                      <Column>
+                        <ColumnTitle>CONTACT</ColumnTitle>
+                        hello@coverful.co.uk
+                      </Column>
 
-
-              {
-              //   <form action="https://app.convertkit.com/forms/1483772/subscriptions" method="post" data-sv-form="1483772" data-uid="06d47c66aa" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://convertkit.com?utm_source=dynamic&amp;utm_medium=referral&amp;utm_campaign=poweredby&amp;utm_content=form&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}">
-              // <div class="formkit-background">
-              // </div>
-              // <div>
-              // <div class="formkit-header" data-element="header">
-              // <h1>Join the Newsletter</h1>
-              // </div>
-              // <div class="formkit-subheader" data-element="subheader">
-              //   Subscribe to get our latest content by email.
-              // </div>
-              // <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert">
-              // </ul>
-              // <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-              // <div class="formkit-field">
-              // <input class="formkit-input" name="email_address" placeholder="Your email address" required="" type="email">
-              // </input>
-              // </div>
-              // <button data-element="submit" class="formkit-submit formkit-submit">
-              // <div class="formkit-spinner">
-              // <div>
-              // </div>
-              // <div>
-              // </div>
-              // <div>
-              // </div>
-              // </div>
-              // <span>
-              // Subscribe
-              // </span>
-              // </button>
-              // </div>
-              // <div class="formkit-guarantee" data-element="guarantee">
-              // We won't send you spam. Unsubscribe at any time.
-              // </div>
-              // </div>
-              // </form>
-}
-
-
-
-
-
-
-
-
-
-
-                <Footer className="desktop-only">
-                  <FooterContents>
-                    <Column>
-                    <ColumnTitle>INFO</ColumnTitle>
-                    <Link to="/about">About us</Link>
-                    <br/>
-                    <Link to="/shipping-and-payment">Shipping & payment</Link>
-                    <br/>
-                    <Link to="returns-and-refunds">Returns & refunds</Link>
-                    </Column>
-                    <Column>
-                    <ColumnTitle>FOLLOW</ColumnTitle>
-                      <div style={{width: 78, display: "flex", justifyContent: "space-between"}}>
-                      <a href="https://facebook.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 1}} icon={faFacebook} /></SocialIcon></a>
-                      <a href="https://instagram.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 21, marginBottom: 0}} icon={faInstagram} /></SocialIcon></a>
-                      <a href="https://twitter.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 0}} icon={faTwitter} /></SocialIcon></a>
+                      <div
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          bottom: 0,
+                          color: 'rgba(0,0,0,0.41)',
+                        }}
+                      >
+                        © {new Date().getFullYear()} Coverful
                       </div>
-                    </Column>
-                    <Column>
-                    <ColumnTitle>CONTACT</ColumnTitle>
-                    hello@coverful.co.uk
-                    </Column>
+                    </FooterContents>
+                  </Footer>
 
-                    <div style={{position: "absolute", right: 0, bottom: 0, color: "rgba(0,0,0,0.41)"}}>© {new Date().getFullYear()} Coverful</div>
-                  </FooterContents>
-                </Footer>
+                  <MobileFooter className="mobile-only">
+                    <MobileFooterContents>
+                      <div style={{ marginBottom: 30 }}>
+                        <MobileColumnTitle>FOLLOW</MobileColumnTitle>
 
-
-                <MobileFooter className="mobile-only">
-                  <MobileFooterContents>
-                    
-                    <div style={{marginBottom: 30}}>
-                    <MobileColumnTitle>FOLLOW</MobileColumnTitle>
-
-                      <div style={{width: 78, display: "flex", justifyContent: "space-between"}}>
-                      <a href="https://facebook.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 1}} icon={faFacebook} /></SocialIcon></a>
-                      <a href="https://instagram.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 21, marginBottom: 0}} icon={faInstagram} /></SocialIcon></a>
-                      <a href="https://twitter.com/wearecoverful" target="_blank" rel="noopener noreferrer"><SocialIcon><FontAwesomeIcon style={{fontSize: 19, marginBottom: 0}} icon={faTwitter} /></SocialIcon></a>
+                        <div
+                          style={{
+                            width: 78,
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                          }}
+                        >
+                          <a
+                            href="https://facebook.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 19, marginBottom: 1 }}
+                                icon={faFacebook}
+                              />
+                            </SocialIcon>
+                          </a>
+                          <a
+                            href="https://instagram.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 21, marginBottom: 0 }}
+                                icon={faInstagram}
+                              />
+                            </SocialIcon>
+                          </a>
+                          <a
+                            href="https://twitter.com/wearecoverful"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <SocialIcon>
+                              <FontAwesomeIcon
+                                style={{ fontSize: 19, marginBottom: 0 }}
+                                icon={faTwitter}
+                              />
+                            </SocialIcon>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <div style={{marginBottom: 30}}>
-                    <MobileColumnTitle>INFO</MobileColumnTitle>
+                      <div style={{ marginBottom: 30 }}>
+                        <MobileColumnTitle>INFO</MobileColumnTitle>
 
-                    <Link to="/about">About us</Link>
-                    <br/>
-                    <Link to="/shipping-and-payment">Shipping & payment</Link>
-                    <br/>
-                    <Link to="returns-and-refunds">Returns & refunds</Link>
-                    </div>
-                    <div style={{marginBottom: 30}}>
-                    <MobileColumnTitle>CONTACT</MobileColumnTitle>
+                        <Link to="/about-us">About us</Link>
+                        <br />
+                        <Link to="/shipping-and-payment">
+                          Shipping & payment
+                        </Link>
+                        <br />
+                        <Link to="returns-and-refunds">Returns & refunds</Link>
+                      </div>
+                      <div style={{ marginBottom: 30 }}>
+                        <MobileColumnTitle>CONTACT</MobileColumnTitle>
+                        hello@coverful.co.uk
+                      </div>
 
-                    hello@coverful.co.uk
-                    </div>
-
-                    <div style={{color: "rgba(0,0,0,0.5)", fontSize: 12}}>© {new Date().getFullYear()} Coverful</div>
-                  </MobileFooterContents>
-                </MobileFooter>
-
-
-              </footer>
-            </Wrapper>
+                      <div style={{ color: 'rgba(0,0,0,0.5)', fontSize: 12 }}>
+                        © {new Date().getFullYear()} Coverful
+                      </div>
+                    </MobileFooterContents>
+                  </MobileFooter>
+                </footer>
+              </Wrapper>
             </main>
           </div>
-
         )}
       />
     </ContextProvider>

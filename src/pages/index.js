@@ -4,27 +4,38 @@ import { Link } from 'gatsby'
 import SEO from '~/components/seo'
 // import banner from '../images/banner.jpeg'
 
-
 const IndexPage = () => (
   <div>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
+    <div
+      style={{
+        height: 260,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 48,
+        marginBottom: 48,
+        fontFamily: 'Brandon Grotesque Light',
+        color: 'rgb(255,255,255)',
+      }}
+    >
+      Butterflies
+    </div>
 
-    <div style={{height: 260, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48, marginBottom: 48, fontFamily: "Brandon Grotesque Light", color: "rgb(255,255,255)"}}>Butterflies</div>
-    
-    <Link to="/animals">Animals</Link>
+    <Link to="/categories/animals">Animals</Link>
     <br />
-    <Link to="/famous-faces">Famous Faces</Link>
+    <Link to="/categories/famous-faces">Famous Faces</Link>
     <br />
-    <Link to="/food-and-drink">Food and Drink</Link>
+    <Link to="/categories/food-and-drink">Food and Drink</Link>
     <br />
-    <Link to="/japanese">Japanese</Link>
+    <Link to="/categories/japanese">Japanese</Link>
     <br />
-    <Link to="/nature">Nature</Link>
+    <Link to="/categories/nature">Nature</Link>
     <br />
-    <Link to="/patterns">Patterns</Link>
+    <Link to="/categories/patterns">Patterns</Link>
     <br />
-    <Link to="/surreal">Surreal</Link>
+    <Link to="/categories/surreal">Surreal</Link>
     <br />
   </div>
 )

@@ -12,7 +12,7 @@ const ProductGrid = () => {
   const { allShopifyProduct } = useStaticQuery(
     graphql`
       query {
-        allShopifyProduct(filter: { tags: { eq: "Animals" } }) {
+        allShopifyProduct(filter: { tags: { eq: "retro" } }) {
           edges {
             node {
               id

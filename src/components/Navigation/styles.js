@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  box-shadow: 0px 4px 4px -4px rgba(0,0,0,0.2);
   top: 0px;
   z-index: 1300;
   -webkit-transform: translateZ(0);
@@ -43,8 +42,8 @@ export const MenuLink = styled(Link)`
   letter-spacing: 1px;
   padding: 0px 16px;
 
-  @media (max-width: ${breakpoints.s}px){
-    font-size: 1rem
+  @media (max-width: ${breakpoints.s}px) {
+    font-size: 1rem;
   }
 `
 
@@ -74,10 +73,3 @@ export const CartCounterMobile = styled.div`
   z-index: 20;
   letter-spacing: 0px;
 `
-
-    
-     
-        
-          
-            
-              

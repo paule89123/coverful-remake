@@ -133,7 +133,7 @@ const Navigation = ({
 			</div>
 			<div className="desktop-only desktop-only-header">
 				<InstantSearch searchClient={searchClient} indexName="coverful">
-					<Wrapper>
+					<Wrapper className="navbar-wrapper">
 						<Container className="black-text">
 							<div style={{ width: '100%' }}>
 								<Logo to="/" style={{ paddingRight: 32, marginLeft: -2 }}>

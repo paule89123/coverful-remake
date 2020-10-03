@@ -8,8 +8,8 @@ import ProductGridSurreal from '~/components/ProductGrid/ProductGridSurreal'
 const SurrealPage = () => (
 	<div>
 		<SEO
-			title="Surreal • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Surreal"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `surreal`]}
 		/>
 
 		<div

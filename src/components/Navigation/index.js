@@ -42,7 +42,7 @@ const SearchResultsWrapper = styled.div`
 
 const HoverLinkStyle = styled.div`
 	display: inline-block;
-	color: rgb(0, 0, 0);
+	color: rgb(36, 44, 72);
 	opacity: 1;
 	transition: 0.2s opacity cubic-bezier(0.65, 0.005, 0.35, 0.995);
 
@@ -105,6 +105,10 @@ const Navigation = ({
 		setMenuActive(false)
 	}
 
+	function handleLinkClick() {
+		setTimeout(() => setMenuActive(false), 0)
+	}
+
 	// useEffect(() => {
 	// 	if (path === '/search' || path === '/search/') {
 	// 		setOnSearchPage(true)
@@ -121,12 +125,12 @@ const Navigation = ({
 			<div
 				style={{
 					height: '2.535rem',
-					color: 'rgb(38,38,38)',
+					color: 'rgb(36,44,72)',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
 					fontSize: 14,
-					backgroundColor: '#f7f7f7',
+					backgroundColor: 'rgba(111, 128, 186, 0.08)',
 				}}
 			>
 				Enjoy free delivery on all UK orders! ✨
@@ -225,7 +229,10 @@ const Navigation = ({
 									{
 										// drop down menu - only visible when menuActive is true
 									}
-									<Menu menuActive={menuActive} />
+									<Menu
+										menuActive={menuActive}
+										handleLinkClick={handleLinkClick}
+									/>
 								</div>
 								<HoverLinkStyle>
 									<MenuLink to="/about-us">ABOUT US</MenuLink>
@@ -256,7 +263,7 @@ const Navigation = ({
 											top: 60,
 											backgroundColor: 'white',
 											borderRadius: 2,
-											boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.2)',
+											boxShadow: '0px 0px 4px 0px rgba(0,40,70,0.2)',
 											zIndex: '3',
 										}}
 									>
@@ -267,8 +274,8 @@ const Navigation = ({
 												padding: 14,
 												fontFamily: 'AvenirBold',
 												fontSize: 14,
-												backgroundColor: 'rgb(246,246,246)',
-												borderBottom: '1px solid rgb(220,220,220)',
+												backgroundColor: 'rgb(247,248,250)',
+												borderBottom: '1px solid rgba(36,44,72,0.1)',
 											}}
 											onClick={handleSubmit}
 											className="hits-small"
@@ -347,7 +354,7 @@ const Navigation = ({
 						<img
 							className="burger"
 							alt="menu"
-							style={{ height: 18 }}
+							style={{ height: 19 }}
 							src={menuIcon}
 							onClick={openMobileMenu}
 						/>
@@ -374,8 +381,6 @@ const Navigation = ({
 								<img
 									alt="basket"
 									style={{
-										height: 24,
-										width: 20,
 										position: 'absolute',
 										marginLeft: 2,
 									}}

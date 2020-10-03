@@ -8,8 +8,8 @@ import ProductGridRetro from '~/components/ProductGrid/ProductGridRetro'
 const RetroPage = () => (
 	<div>
 		<SEO
-			title="Retro • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Retro"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `retro`]}
 		/>
 
 		<div

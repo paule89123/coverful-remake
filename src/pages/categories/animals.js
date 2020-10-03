@@ -8,10 +8,9 @@ import ProductGridAnimals from '~/components/ProductGrid/ProductGridAnimals'
 const AnimalsPage = () => (
 	<div>
 		<SEO
-			title="Animals • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Animals"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `animals`]}
 		/>
-
 		<div
 			style={{
 				height: 260,

@@ -8,7 +8,7 @@ import StoreContext from '~/context/StoreContext'
 
 const ProductForm = ({ product }) => {
   const activeStyle = {
-    borderBottom: '1px solid black',
+    borderBottom: '1px solid rgb(36,44,72)',
     display: 'inline-block',
     cursor: 'pointer',
     paddingBottom: 8,
@@ -174,7 +174,7 @@ const ProductForm = ({ product }) => {
       <div>
         <div
           style={{
-            borderBottom: '1px solid rgba(0,0,0,0.2)',
+            borderBottom: '1px solid rgba(36,44,72,0.2)',
             marginBottom: 16,
           }}
         >
@@ -211,7 +211,7 @@ const ProductForm = ({ product }) => {
             We offer FREE UK tracked delivery on all orders. Tracked airmail to
             the rest of the world is just £1.99. See{' '}
             <Link
-              style={{ color: '#7e7e7e', borderBottom: '1px dashed #7e7e7e' }}
+              style={{ color: 'rgb(111, 128, 186)' }}
               to="/shipping-and-payment"
             >
               Shipping & Payment
@@ -222,7 +222,7 @@ const ProductForm = ({ product }) => {
             We want you to be completely happy with your Coverful purchase. If
             you don’t love it, exchanges and returns are free for 30 days. See{' '}
             <Link
-              style={{ color: '#7e7e7e', borderBottom: '1px dashed #7e7e7e' }}
+              style={{ color: 'rgb(111, 128, 186)' }}
               to="/returns-and-refunds"
             >
               Returns & Refunds
@@ -275,7 +275,7 @@ const ProductForm = ({ product }) => {
                       : {
                           lineHeight: '1.4',
                           textAlign: 'center',
-                          border: '1px solid rgba(0,0,0,0.2)',
+                          border: '1px solid rgba(36,44,72,0.2)',
                           marginLeft: 1,
                           marginRight: 1,
                           padding: '13px 24px',

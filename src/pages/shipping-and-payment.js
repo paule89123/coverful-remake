@@ -5,7 +5,10 @@ import SEO from '~/components/seo'
 
 const SecondPage = () => (
 	<>
-		<SEO title="Shipping & Payment • Coverful" />
+		<SEO
+			title="Shipping & Payment"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`]}
+		/>
 		<div className="page-container">
 			<h1>Shipping & Payment</h1>
 			<h3>Shipping </h3>

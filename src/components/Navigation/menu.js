@@ -20,20 +20,21 @@ const menuStyle = {
 	marginLeft: '-50vw',
 	left: '50%',
 	top: 65,
-	boxShadow: 'inset 0 4px 5px -4px rgba(0,0,0,0.3)',
+	boxShadow: 'inset 0 4px 5px -4px rgba(0,40,70,0.3)',
 	backgroundColor: 'white',
 	paddingTop: 39,
 }
 
-const categoriesVariables = [animals, art, famousfaces]
+const categoriesVariables = [animals, famousfaces]
 export const categoriesStrings = [
 	'Animals',
-	'Art',
 	'Famous Faces',
-	'Food',
+	'Food and Drink',
 	'Patterns',
 	'Japanese',
+	'Music',
 	'Nature',
+	'Nautical',
 	'Retro',
 	'Surreal',
 ]
@@ -44,7 +45,7 @@ export const collectionsStrings = [
 	'Final Few',
 ]
 
-const Menu = ({ menuActive }) => {
+const Menu = ({ menuActive, handleLinkClick }) => {
 	const [activeCategory, setActiveCategory] = useState(animals)
 
 	function handleMouseOver(category) {
@@ -67,6 +68,7 @@ const Menu = ({ menuActive }) => {
 					<MenuLink
 						style={menuLinkStyle}
 						onMouseOver={() => handleMouseOver(categoriesVariables[i])}
+						onClick={handleLinkClick}
 					>
 						{item}
 					</MenuLink>
@@ -100,7 +102,7 @@ const Menu = ({ menuActive }) => {
 			</div>
 			<div
 				style={{
-					boxShadow: 'inset 0 4px 4px -4px rgba(0,0,0,0.2)',
+					boxShadow: 'inset 0 4px 4px -4px rgba(0,40,70,0.2)',
 					height: 6,
 					zIndex: 2,
 					position: 'relative',

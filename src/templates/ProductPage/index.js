@@ -10,104 +10,142 @@ import {
   GridLeft,
   GridRight,
 } from '~/utils/styles'
-import {
-  ProductTitle,
-  ProductDescription
-} from './styles'
-import 
-  Carousel
-from './Carousel'
+import { ProductTitle, ProductDescription } from './styles'
+import Carousel from './Carousel'
 
 const ProductPage = ({ data }) => {
   const activeThumbnailStyle = {
-    cursor: "pointer", 
-    margin: "0px 6px", 
-    border: "1px solid rgba(0,0,0,0.65)", 
-    display: "inline-block", 
-    borderRadius: "50%"
+    cursor: 'pointer',
+    margin: '0px 6px',
+    border: '1px solid rgba(36,44,72,0.65)',
+    display: 'inline-block',
+    borderRadius: '50%',
   }
   const inactiveThumbnailStyle = {
-    cursor: "pointer", 
-    margin: "0px 6px", 
-    border: "1px solid rgba(0,0,0,0)", 
-    display: "inline-block", 
-    borderRadius: "50%"
+    cursor: 'pointer',
+    margin: '0px 6px',
+    border: '1px solid rgba(0,0,0,0)',
+    display: 'inline-block',
+    borderRadius: '50%',
   }
-  const [ activeImage, setActiveImage ] = useState()
-  const [ imageIndex, setImageIndex ] = useState(0)
+  const [activeImage, setActiveImage] = useState()
+  const [imageIndex, setImageIndex] = useState(0)
   const product = data.shopifyProduct
 
-  const imagesDesktop = product.images.map((image, i) => (
-    i === 0 ? 
-    <div style={{boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))"}}>
-      <Img
-        fluid={image.localFile.childImageSharp.fluid}
-        key={image.id}
-        alt={product.title}
-      />
-    </div>
-    :
-    <div style={{height: 461.375}}>
-    <Img
-        fluid={image.localFile.childImageSharp.fluid}
-        key={image.id}
-        alt={product.title}
-        style={{height: 461.375}}
-    />
-</div>
-
-  ))
-
-    const imagesMobile = product.images.map((image, i) => (
-    i === 0 ? 
-    <div style={{width: "100vw", height: "100vw", boxSizing: "border-box", padding: "54px 37px 38px 29px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))", display: "flex", justifyContent: "center", alignItems: "center"}}>
-      <Img
-        fluid={image.localFile.childImageSharp.fluid}
-        key={image.id}
-        alt={product.title}
-        style={{width: "80vw", height: "80vw"}}
-      />
-    </div>
-    :
-    <div>
-    <Img
-        fluid={image.localFile.childImageSharp.fluid}
-        key={image.id}
-        alt={product.title}
-        style={{width: "100vw", height: "100vw"}}
-    />
-</div>
-
-  ))
-
-  const imageThumbnails = product.images.map((image, i) => (
-        i === 0 ? 
-        <div style={imageIndex === i ? activeThumbnailStyle : inactiveThumbnailStyle}>
-    <div onClick={() => handleClick(i)} style={{margin: 2, borderRadius: "50%", width: 36, height: 36, overflow: "hidden", boxSizing: "border-box", padding: "4px 0px 0px 0px", background: "linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.1))"}}>
-
-      <Img
-        fluid={image.localFile.childImageSharp.fluid}
-        key={image.id}
-        alt={product.title}
-      />
-
-    </div>
-    </div>
-    :
-    <div style={imageIndex === i ? activeThumbnailStyle : inactiveThumbnailStyle}>
-    <div style={{margin: 2, borderRadius: "50%", width: 36, height: 36, overflow: "hidden", boxSizing: "border-box"}} onClick={() => handleClick(i)}>
-      <div style={{width: 68}}>
+  const imagesDesktop = product.images.map((image, i) =>
+    i === 0 ? (
+      <div
+        style={{
+          boxSizing: 'border-box',
+          padding: '54px 37px 38px 29px',
+          background:
+            'linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))',
+        }}
+      >
         <Img
+          fluid={image.localFile.childImageSharp.fluid}
+          key={image.id}
+          alt={product.title}
+        />
+      </div>
+    ) : (
+      <div style={{ height: 461.375 }}>
+        <Img
+          fluid={image.localFile.childImageSharp.fluid}
+          key={image.id}
+          alt={product.title}
+          style={{ height: 461.375 }}
+        />
+      </div>
+    )
+  )
+
+  const imagesMobile = product.images.map((image, i) =>
+    i === 0 ? (
+      <div
+        style={{
+          width: '100vw',
+          height: '100vw',
+          boxSizing: 'border-box',
+          padding: '54px 37px 38px 29px',
+          background:
+            'linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Img
+          fluid={image.localFile.childImageSharp.fluid}
+          key={image.id}
+          alt={product.title}
+          style={{ width: '80vw', height: '80vw' }}
+        />
+      </div>
+    ) : (
+      <div>
+        <Img
+          fluid={image.localFile.childImageSharp.fluid}
+          key={image.id}
+          alt={product.title}
+          style={{ width: '100vw', height: '100vw' }}
+        />
+      </div>
+    )
+  )
+
+  const imageThumbnails = product.images.map((image, i) =>
+    i === 0 ? (
+      <div
+        style={imageIndex === i ? activeThumbnailStyle : inactiveThumbnailStyle}
+      >
+        <div
+          onClick={() => handleClick(i)}
+          style={{
+            margin: 2,
+            borderRadius: '50%',
+            width: 36,
+            height: 36,
+            overflow: 'hidden',
+            boxSizing: 'border-box',
+            padding: '4px 0px 0px 0px',
+            background:
+              'linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.1))',
+          }}
+        >
+          <Img
             fluid={image.localFile.childImageSharp.fluid}
             key={image.id}
             alt={product.title}
-        />
+          />
+        </div>
       </div>
-    </div>
-    </div>
-
-    ))
-
+    ) : (
+      <div
+        style={imageIndex === i ? activeThumbnailStyle : inactiveThumbnailStyle}
+      >
+        <div
+          style={{
+            margin: 2,
+            borderRadius: '50%',
+            width: 36,
+            height: 36,
+            overflow: 'hidden',
+            boxSizing: 'border-box',
+          }}
+          onClick={() => handleClick(i)}
+        >
+          <div style={{ width: 68 }}>
+            <Img
+              fluid={image.localFile.childImageSharp.fluid}
+              key={image.id}
+              alt={product.title}
+            />
+          </div>
+        </div>
+      </div>
+    )
+  )
 
   function handleClick(i) {
     setActiveImage(imagesDesktop[i])
@@ -118,48 +156,54 @@ const ProductPage = ({ data }) => {
     <>
       <SEO title={product.title} description={product.description} />
       <Container>
-      <div className="desktop-only">
-        <TwoColumnGrid>
-          <GridLeft>
-            
-            <div style={{width: "100%", padding: "0px 72px 0px 0px"}}>
-              {activeImage ? activeImage : imagesDesktop[0]}
-            </div>
+        <div className="desktop-only">
+          <TwoColumnGrid>
+            <GridLeft>
+              <div style={{ width: '100%', padding: '0px 72px 0px 0px' }}>
+                {activeImage ? activeImage : imagesDesktop[0]}
+              </div>
 
-            {imagesDesktop[1] && 
-            <div style={{margin: "28px auto", paddingRight: 72}}>
-              {imageThumbnails}
-            </div>}
-          </GridLeft>
-          <GridRight style={{opacity: "1"}}>
-            <ProductTitle style={{}}>{product.title}</ProductTitle>
-            <ProductForm product={product} />
-            <br /><br />
-            <div style={{fontSize: 14, lineHeight: "1.4"}}>
-              <span style={{fontFamily: "Avenir-Medium", fontSize: 16}}>Our Happiness Promise</span>
-              <br />We stand behind our products. If you don’t love it, <br />exchanges and returns are free for 30 days. 
-            </div>
-          </GridRight>
-        </TwoColumnGrid>
+              {imagesDesktop[1] && (
+                <div style={{ margin: '28px auto', paddingRight: 72 }}>
+                  {imageThumbnails}
+                </div>
+              )}
+            </GridLeft>
+            <GridRight style={{ opacity: '1' }}>
+              <ProductTitle style={{}}>{product.title}</ProductTitle>
+              <ProductForm product={product} />
+              <br />
+              <br />
+              <div style={{ fontSize: 14, lineHeight: '1.4' }}>
+                <span style={{ fontFamily: 'Avenir-Medium', fontSize: 16 }}>
+                  Our Happiness Promise
+                </span>
+                <br />
+                We stand behind our products. If you don’t love it, <br />
+                exchanges and returns are free for 30 days.
+              </div>
+            </GridRight>
+          </TwoColumnGrid>
         </div>
 
-            <div className="mobile-only">
-            <div style={{height: 28}}></div>
-                  <Carousel images={imagesMobile} />
-                  <div className="mobile-description">
-                        <ProductTitle style={{}}>{product.title}</ProductTitle>
-                      <ProductForm product={product} />
-                      <br /><br />
-                      <div style={{fontSize: 14, lineHeight: "1.4"}}>
-                        <span style={{fontFamily: "Avenir-Medium", fontSize: 16}}>Our Happiness Promise</span>
-                        <br />We stand behind our products. If you don’t love it, <br />exchanges and returns are free for 30 days. 
-                      </div>
-                  </div>
+        <div className="mobile-only">
+          <div style={{ height: 28 }}></div>
+          <Carousel images={imagesMobile} />
+          <div className="mobile-description">
+            <ProductTitle style={{}}>{product.title}</ProductTitle>
+            <ProductForm product={product} />
+            <br />
+            <br />
+            <div style={{ fontSize: 14, lineHeight: '1.4' }}>
+              <span style={{ fontFamily: 'Avenir-Medium', fontSize: 16 }}>
+                Our Happiness Promise
+              </span>
+              <br />
+              We stand behind our products. If you don’t love it, <br />
+              exchanges and returns are free for 30 days.
             </div>
-
-
-
-
+          </div>
+        </div>
       </Container>
     </>
   )
@@ -207,7 +251,7 @@ export const query = graphql`
         localFile {
           childImageSharp {
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }

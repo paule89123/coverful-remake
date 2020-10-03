@@ -53,14 +53,14 @@ const styles = {
     fill: '#373a47',
   },
   bmItemList: {
-    color: '#b8b7ad',
+    color: 'rgb(111,128,186)',
     padding: '0.8em',
   },
   bmItem: {
     display: 'inline-block',
   },
   bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)',
+    background: 'rgba(36,44,72, 0.3)',
   },
 }
 
@@ -70,18 +70,18 @@ const Wrapper = styled.div`
   padding: 0px 0rem;
 `
 const Footer = styled.div`
-  background-color: rgb(250, 250, 250);
-  border-top: 1px solid rgb(240, 240, 240);
+  background-color: rgb(244, 245, 249);
+  border-top: 0px solid rgb(240, 240, 240);
   position: relative;
   width: 100vw;
   left: 50%;
   margin-left: -50vw;
   margin-top: 96px;
-  padding: 48px 0px 68px 0px;
+  padding: 52px 0px 52px 0px;
 `
 const MobileFooter = styled.div`
-  background-color: rgb(250, 250, 250);
-  border-top: 1px solid rgb(240, 240, 240);
+  background-color: rgb(244, 245, 249);
+  border-top: 0px solid rgb(240, 240, 240);
   position: relative;
   width: 100vw;
   left: 50%;
@@ -113,7 +113,7 @@ const Column = styled.div`
 const ColumnTitle = styled.div`
   font-size: 13px;
   font-family: AvenirBold;
-  margin: 0px 0px 8px 0px;
+  margin: 0px 0px 0px 0px;
   letter-spacing: 1px;
 `
 const MobileColumnTitle = styled.div`
@@ -164,7 +164,7 @@ const Layout = ({ children, location }) => {
 
   const categoriesForMobileMenu = categoriesStrings.map((item, i) => {
     const slug = item.replace(/\s+/g, '-').toLowerCase()
-    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+    const menuLinkStyle = { padding: '6px 0px', opacity: '1' }
 
     return (
       <a onClick={closeMobileMenuFromLink}>
@@ -186,7 +186,7 @@ const Layout = ({ children, location }) => {
       .replace(/\s+/g, '-')
       .replace('&', 'and')
       .toLowerCase()
-    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+    const menuLinkStyle = { padding: '6px 0px', opacity: '1' }
 
     return (
       <a onClick={closeMobileMenuFromLink}>
@@ -201,7 +201,7 @@ const Layout = ({ children, location }) => {
 
   const collectionsForMobileMenu = collectionsStrings.map((item, i) => {
     const slug = item.replace(/\s+/g, '-').toLowerCase()
-    const menuLinkStyle = { padding: '6px 0px', opacity: '0.85' }
+    const menuLinkStyle = { padding: '6px 0px', opacity: '1' }
 
     return (
       <Link to={`categories/${slug}`}>
@@ -435,7 +435,7 @@ const Layout = ({ children, location }) => {
                           position: 'absolute',
                           right: 0,
                           bottom: 0,
-                          color: 'rgba(0,0,0,0.41)',
+                          color: 'rgba(36,44,72,0.41)',
                         }}
                       >
                         © {new Date().getFullYear()} Coverful
@@ -509,7 +509,9 @@ const Layout = ({ children, location }) => {
                         hello@coverful.co.uk
                       </div>
 
-                      <div style={{ color: 'rgba(0,0,0,0.5)', fontSize: 12 }}>
+                      <div
+                        style={{ color: 'rgba(36,44,72,0.5)', fontSize: 12 }}
+                      >
                         © {new Date().getFullYear()} Coverful
                       </div>
                     </MobileFooterContents>

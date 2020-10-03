@@ -14,5 +14,4 @@ export const ProductDescription = styled.div`
   line-height: 1.4;
   font-weight: 300;
   font-size: 14px;
-  color: rgb(68,68,68)
 `

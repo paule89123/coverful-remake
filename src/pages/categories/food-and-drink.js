@@ -8,8 +8,8 @@ import ProductGridFoodAndDrink from '~/components/ProductGrid/ProductGridFoodAnd
 const FoodAndDrinkPage = () => (
 	<div>
 		<SEO
-			title="Food and Drink • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Food and Drink"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `food`]}
 		/>
 
 		<div
@@ -23,7 +23,7 @@ const FoodAndDrinkPage = () => (
 				fontFamily: 'AvenirBold',
 			}}
 		>
-			Food
+			Food & Drink
 		</div>
 		<ProductGridFoodAndDrink />
 	</div>

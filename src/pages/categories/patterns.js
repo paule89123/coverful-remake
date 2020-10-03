@@ -8,8 +8,8 @@ import ProductGridPatterns from '~/components/ProductGrid/ProductGridPatterns'
 const PatternsPage = () => (
 	<div>
 		<SEO
-			title="Patterns • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Patterns"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `patterns`]}
 		/>
 
 		<div

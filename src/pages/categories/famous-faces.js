@@ -8,8 +8,8 @@ import ProductGridFamousFaces from '~/components/ProductGrid/ProductGridFamousFa
 const FamousFacesPage = () => (
 	<div>
 		<SEO
-			title="Famous Faces • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Famous Faces"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `famous`]}
 		/>
 
 		<div

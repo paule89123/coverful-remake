@@ -8,8 +8,8 @@ import ProductGridJapanese from '~/components/ProductGrid/ProductGridJapanese'
 const JapanesePage = () => (
 	<div>
 		<SEO
-			title="Japanese • Coverful"
-			keywords={[`gatsby`, `application`, `react`]}
+			title="Japanese"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `japanese`]}
 		/>
 
 		<div

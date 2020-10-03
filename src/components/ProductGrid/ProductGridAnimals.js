@@ -24,8 +24,8 @@ const ProductGrid = () => {
                 originalSrc
                 localFile {
                   childImageSharp {
-                    fixed(width: 345) {
-                      ...GatsbyImageSharpFixed
+                    fluid {
+                      ...GatsbyImageSharpFluid_noBase64
                     }
                   }
                 }
@@ -63,12 +63,10 @@ const ProductGrid = () => {
             <Product key={id}>
               <Link to={`/products/${handle}/`}>
                 {firstImage && firstImage.localFile && (
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Img
-                      fixed={firstImage.localFile.childImageSharp.fixed}
-                      alt={handle}
-                    />
-                  </div>
+                  <Img
+                    fluid={firstImage.localFile.childImageSharp.fluid}
+                    alt={handle}
+                  />
                 )}
               </Link>
               <Title>{title}</Title>

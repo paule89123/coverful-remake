@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import SEO from '~/components/seo'
-import ProductGridNature from '~/components/ProductGrid/ProductGridNature'
+import ProductGridMusic from '~/components/ProductGrid/ProductGridMusic'
 // import banner from '../images/banner.jpeg'
 
-const NaturePage = () => (
+const MusicPage = () => (
 	<div>
 		<SEO
-			title="Nature"
-			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `nature`]}
+			title="Music"
+			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `music`]}
 		/>
 
 		<div
@@ -23,10 +23,10 @@ const NaturePage = () => (
 				fontFamily: 'AvenirBold',
 			}}
 		>
-			Nature
+			Music
 		</div>
-		<ProductGridNature />
+		<ProductGridMusic />
 	</div>
 )
 
-export default NaturePage
+export default MusicPage

@@ -11,15 +11,13 @@ const JapanesePage = () => (
 			title="Japanese"
 			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `japanese`]}
 		/>
-
 		<div
 			style={{
-				height: 260,
+				height: 200,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				fontSize: 48,
-				marginBottom: 48,
 				fontFamily: 'AvenirBold',
 			}}
 		>

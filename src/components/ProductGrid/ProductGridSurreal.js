@@ -24,8 +24,8 @@ const ProductGrid = () => {
                 originalSrc
                 localFile {
                   childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid_noBase64
+                    fluid(maxWidth: 500) {
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
                 }

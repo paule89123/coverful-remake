@@ -11,15 +11,13 @@ const FoodAndDrinkPage = () => (
 			title="Food and Drink"
 			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `food`]}
 		/>
-
 		<div
 			style={{
-				height: 260,
+				height: 200,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				fontSize: 48,
-				marginBottom: 48,
 				fontFamily: 'AvenirBold',
 			}}
 		>

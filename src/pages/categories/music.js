@@ -11,15 +11,13 @@ const MusicPage = () => (
 			title="Music"
 			keywords={[`coverful`, `cushion`, `cushion covers`, `uk`, `music`]}
 		/>
-
 		<div
 			style={{
-				height: 260,
+				height: 200,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				fontSize: 48,
-				marginBottom: 48,
 				fontFamily: 'AvenirBold',
 			}}
 		>

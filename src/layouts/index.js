@@ -70,8 +70,8 @@ const Wrapper = styled.div`
   padding: 0px 0rem;
 `
 const Footer = styled.div`
-  background-color: rgb(244, 245, 249);
-  border-top: 0px solid rgb(240, 240, 240);
+  background-color: rgba(244, 245, 255, 0);
+  border-top: 1px solid rgb(240, 240, 240);
   position: relative;
   width: 100vw;
   left: 50%;

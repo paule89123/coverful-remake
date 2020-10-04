@@ -195,10 +195,9 @@ const ProductForm = ({ product }) => {
         </div>
         {detailsActive && (
           <ul
+            className="ul"
             style={{
               lineHeight: '1.4',
-              listStyleType: 'disc',
-              listStylePosition: 'inside',
             }}
           >
             <li>Cotton-linen blend cushion cover</li>

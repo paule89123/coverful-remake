@@ -241,7 +241,7 @@ export const TwoColumnGrid = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: ${breakpoints.l}px) {
+  @media (max-width: ${breakpoints.m}px) {
     display: block;
   }
 `

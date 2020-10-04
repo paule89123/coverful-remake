@@ -19,6 +19,13 @@ import ContextProvider from '~/provider/ContextProvider'
 import { GlobalStyle } from '~/utils/styles'
 import Navigation from '~/components/Navigation'
 
+const breakpoints = {
+  s: 576,
+  m: 768,
+  l: 992,
+  xl: 1200,
+}
+
 const styles = {
   bmBurgerButton: {
     position: 'fixed',
@@ -67,7 +74,12 @@ const styles = {
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 980px;
-  padding: 0px 0rem;
+  padding: 0px 19px;
+  box-sizing: content-box;
+
+  @media (max-width: ${breakpoints.m}px) {
+    padding: 0px;
+  }
 `
 const Footer = styled.div`
   background-color: rgba(244, 245, 255, 0);
@@ -77,7 +89,7 @@ const Footer = styled.div`
   left: 50%;
   margin-left: -50vw;
   margin-top: 96px;
-  padding: 52px 0px 52px 0px;
+  padding: 52px 19px 52px 19px;
 `
 const MobileFooter = styled.div`
   background-color: rgb(244, 245, 249);
@@ -366,7 +378,10 @@ const Layout = ({ children, location }) => {
                     // </form>
                   }
 
-                  <Footer className="desktop-only">
+                  <Footer
+                    className="desktop-only"
+                    style={{ boxSizing: 'border-box' }}
+                  >
                     <FooterContents>
                       <Column>
                         <ColumnTitle>INFO</ColumnTitle>

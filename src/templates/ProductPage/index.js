@@ -34,28 +34,39 @@ const ProductPage = ({ data }) => {
 
   const imagesDesktop = product.images.map((image, i) =>
     i === 0 ? (
-      <div
-        style={{
-          boxSizing: 'border-box',
-          padding: '54px 37px 38px 29px',
-          background:
-            'linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))',
-        }}
-      >
-        <Img
-          fluid={image.localFile.childImageSharp.fluid}
-          key={image.id}
-          alt={product.title}
-        />
+      <div style={{ maxHeight: 462.781, overflow: 'hidden' }}>
+        <div
+          style={{ height: 0, paddingBottom: '93.189%', overflow: 'hidden' }}
+        >
+          <div
+            style={{
+              boxSizing: 'border-box',
+              padding: '10.75% 7.5% 8% 5.75%',
+              // padding: '54px 37px 38px 29px',
+              background:
+                'linear-gradient(140deg, rgba(220,225,255), rgba(10,10,30, 0.07))',
+            }}
+          >
+            <Img
+              fluid={image.localFile.childImageSharp.fluid}
+              key={image.id}
+              alt={product.title}
+            />
+          </div>
+        </div>
       </div>
     ) : (
-      <div style={{ height: 461.375 }}>
-        <Img
-          fluid={image.localFile.childImageSharp.fluid}
-          key={image.id}
-          alt={product.title}
-          style={{ height: 461.375 }}
-        />
+      <div style={{ maxHeight: 462.781, overflow: 'hidden' }}>
+        <div
+          style={{ height: 0, paddingBottom: '93.189%', overflow: 'hidden' }}
+        >
+          <Img
+            fluid={image.localFile.childImageSharp.fluid}
+            key={image.id}
+            alt={product.title}
+            style={{ height: 461.375 }}
+          />
+        </div>
       </div>
     )
   )

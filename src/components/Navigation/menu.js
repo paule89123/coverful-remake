@@ -38,12 +38,7 @@ export const categoriesStrings = [
 	'Retro',
 	'Surreal',
 ]
-export const collectionsStrings = [
-	'New In',
-	'Most Loved',
-	'Collections',
-	'Final Few',
-]
+export const collectionsStrings = ['New In', 'Most Loved', 'Final Few']
 
 const Menu = ({ menuActive, handleLinkClick }) => {
 	const [activeCategory, setActiveCategory] = useState(animals)

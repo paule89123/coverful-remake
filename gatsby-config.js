@@ -1,7 +1,7 @@
 const path = require('path')
 
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const myQuery = `{
@@ -22,14 +22,15 @@ const myQuery = `{
           }
         }
       }
-}`;
+}`
 
 const queries = [
   {
     query: myQuery,
-    transformer: ({ data }) => data.allShopifyProduct.edges.map(({ node }) => node), // optional
+    transformer: ({ data }) =>
+      data.allShopifyProduct.edges.map(({ node }) => node), // optional
   },
-];
+]
 
 module.exports = {
   siteMetadata: {
@@ -94,7 +95,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-134421805-1",
+        trackingId: 'UA-134421805-1',
         anonymize: true,
         respectDNT: true,
       },

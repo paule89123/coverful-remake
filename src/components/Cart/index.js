@@ -219,6 +219,7 @@ const Cart = props => {
                 color: 'white',
                 marginBottom: 16,
                 fontSize: 14,
+                cursor: 'pointer',
               }}
               onClick={handleCheckout}
               disabled={checkout.lineItems.length === 0}

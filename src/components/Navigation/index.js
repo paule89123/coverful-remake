@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { navigate } from 'gatsby'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
-import downArrow from './down-arrow.png'
+import downArrow from './down-chevron.svg'
 import whiteBag from './white-bag.svg'
 import blackBag from './black-bag.svg'
 import menuIcon from './menu.svg'
@@ -210,16 +210,18 @@ const Navigation = ({
 														opacity: 0.7,
 														transition:
 															'0.2s opacity cubic-bezier(0.65, 0.005, 0.35, 0.995)',
-														height: 12,
-														marginTop: 1,
-														marginLeft: 1,
+														height: 9,
+														position: 'relative',
+														top: -1,
+														marginLeft: 3,
 														cursor: 'pointer',
 												  }
 												: {
 														opacity: '1',
-														height: 12,
-														marginTop: 1,
-														marginLeft: 1,
+														height: 9,
+														position: 'relative',
+														top: -1,
+														marginLeft: 3,
 														cursor: 'pointer',
 												  }
 										}

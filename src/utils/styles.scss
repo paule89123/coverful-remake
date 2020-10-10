@@ -326,3 +326,15 @@ src: local('Brandon Grotesque Black Italic'), url('Brandon_blk_it.woff') format(
 		margin-right: 18px;
 	}
 }
+
+a:hover {
+	color: rgb(91, 108, 166);
+	opacity: 1;
+}
+
+li a:hover,
+.bm-menu a:hover,
+.navbar-wrapper a:hover {
+	color: rgb(36, 44, 72);
+	opacity: 1;
+}

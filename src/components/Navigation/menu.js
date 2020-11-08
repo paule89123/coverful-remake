@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import animals from './animals1.jpeg'
+import patterns from './patterns.jpg'
 import famousfaces from './famousfaces1.jpg'
 import art from './art1.jpeg'
 import { Img } from '~/utils/styles'
@@ -25,7 +26,7 @@ const menuStyle = {
 	paddingTop: 39,
 }
 
-const categoriesVariables = [animals, famousfaces]
+const categoriesVariables = [animals, famousfaces, patterns]
 export const categoriesStrings = [
 	'Animals',
 	'Famous Faces',

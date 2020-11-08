@@ -8,7 +8,7 @@ import StoreContext from '~/context/StoreContext'
 
 const ProductForm = ({ product }) => {
   const activeStyle = {
-    borderBottom: '1px solid rgb(36,44,72)',
+    borderBottom: '1px solid rgb(36,44,71)',
     display: 'inline-block',
     cursor: 'pointer',
     paddingBottom: 8,
